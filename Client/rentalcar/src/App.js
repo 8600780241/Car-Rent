@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import AppRouter from './AppRouter';
 
 function App() {
   return (
@@ -17,7 +17,6 @@ function App() {
         >
           Learn React
         </a>
-        <h2>its just checking purpose</h2>
       </header>
     </div>
   );
