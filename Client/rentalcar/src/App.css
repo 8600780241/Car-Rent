@@ -1,0 +1,168 @@
+
+.register{
+    background-size: cover;
+    width:1480px;
+    height: 700px;
+}
+#logo {
+    font-weight: bold;
+    color: #007FED;
+    font-size: 24px;
+    margin-left: 45px;
+    margin-top: 1px;
+    margin-bottom: 15px;
+}
+.regiPart {
+ display: flex;
+ flex-direction: row;
+}
+.textPart2 {
+    font-size: 42px;
+    width: 550px;
+    font: normal normal 600 49px/64px Montserrat;
+    letter-spacing: 1.23px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-top: 270px;
+    margin-left: 140px;
+}
+.blockPart2 {
+    width: 340px;
+    height: 470px;
+    background-color: #FFFFFF;
+    margin-top: 120px;
+    margin-left: 280px;
+    border-radius: 6px;
+}
+.blockPart2 > p {
+    text-align: left;
+font: normal normal normal 18px/30px Open Sans;
+letter-spacing: 0.53px;
+color: #1B2734;
+opacity: 1;
+margin-left: 25px;
+margin-top: 15px;
+}
+.input2,.input1 {
+    width: 220px;
+    height: 35px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #D1D1D1;
+border-radius: 4px;
+opacity: 1;
+margin-left: 50px;
+margin-top: 20px;
+}
+::placeholder{
+    text-align: left;
+    font: normal normal normal 12px/22px Open Sans;
+    letter-spacing: 0.16px;
+    color: #A5A1A1;
+    opacity: 1;
+    margin-left: 10px;
+}
+#registerButton {
+    margin-left: 210px;
+    margin-top: 20px;
+    background: #4E94F4 0% 0% no-repeat padding-box;
+border-radius: 5px;
+border: 1px solid wheat;
+opacity: 1;
+height: 50pxpx;
+width: 70px;
+text-align: left;
+font: normal normal bold 10px/22px Open Sans;
+letter-spacing: 0px;
+color: #FFFFFF;
+text-transform: uppercase
+}
+#l {
+    text-align: left;
+font: normal normal 600 14px/24px Open Sans;
+letter-spacing: 0px;
+color: #4E94F4;
+opacity: 1;
+margin-bottom: 25px;
+margin-left: 50px;
+}
+.signInPart1 {
+    display: flex;
+    flex-direction: row;
+}
+.textPart1 {
+    text-align: left;
+font: normal normal 600 42px/64px Montserrat;
+letter-spacing: 1.23px;
+color: #FFFFFF;
+opacity: 1;
+width: 550px;
+padding-left: 140px;
+padding-top: 270px;
+}
+#route {
+    display: flex;
+flex-direction: row;
+}
+#rRoute,#aRoute {
+    text-decoration: underline;
+font: normal normal normal 30px/46px Helvetica Neue;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+padding-top: 25px;
+}
+#aRoute {
+    padding-left: 40px;
+}
+.blockPart1 {
+    width: 340px;
+    height: 360px;
+    background-color: #FFFFFF;
+    margin-top: 160px;
+    margin-left: 280px;
+    border-radius: 6px;
+  
+}
+.blockPart1 > p {
+    font: normal normal normal 18px/30px Open Sans;
+letter-spacing: 0.53px;
+color: #1B2734;
+opacity: 1;
+padding-left: 30px;
+margin-top: 40px;
+}
+.input2 {
+    font: normal normal normal 16px/22px Open Sans;
+letter-spacing: 0.16px;
+color: #A5A1A1;
+opacity: 1;
+}
+#forgetPassword {
+    font: normal normal normal 12px/19px Open Sans;
+letter-spacing: 0px;
+color: #04425A;
+opacity: 1;
+margin-left: 190px;
+}
+.signInbutton {
+    background: #4E94F4 ;
+border-radius: 6px;
+margin-left: 195px;
+margin-top: 20px;
+font: normal normal bold 12px/22px Open Sans;
+letter-spacing: 0px;
+color: #FFFFFF;
+text-transform: uppercase;
+border: 1px solid white;
+width: 80px;
+height: 30px;
+}
+#createAccount {
+    font: normal normal 600 14px/24px Open Sans;
+letter-spacing: 0px;
+color: #4E94F4;
+margin-left: 50px;
+}
+span {
+    color: red;
+}

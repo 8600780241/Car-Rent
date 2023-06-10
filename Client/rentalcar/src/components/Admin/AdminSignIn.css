@@ -1,0 +1,89 @@
+.landing{
+    width: 100vw;
+    height: 95vh;
+}
+
+.header{
+    font-weight: bold;
+    color: #007FED;
+    letter-spacing: 5px;
+    padding-left: 70px;
+}
+
+.landing{
+    position: absolute;
+}
+
+.quote{
+    color: #FFFFFF;
+    position: relative;
+    margin-left: 180px;
+    margin-top: 300px;
+    width: 740px;
+    height: 170px;
+    font-size: 32px;
+}
+
+.quote p {
+    color: #FFFFFF;
+    margin-top: -10px;
+}
+
+.quote Link {
+    color: #FFFFFF;
+}
+
+.nav{
+    position: relative;
+    margin-left: 180px;
+    margin-top: 20px;
+    font-size: 32px;
+}
+
+.form-container{
+    position: relative;
+    background-color: #FFFFFF;
+    float: right;
+    width: 400px;
+    height: 350px;
+    margin-top: 150px;
+    margin-right: 150px;
+    border-radius: 10px;
+    padding: 60px 40px;
+}
+
+.form-container p {
+    font-size: 24px;
+}
+
+.form-container input{
+    display: block;
+    width: 98%;
+    height: 50px;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    margin-top: 30px;
+    padding-left: 10px;
+}
+
+#text{
+    float: right;
+    font-size: 1rem;
+}
+
+#btn{
+    background-color: #4E94F4;
+    position: relative;
+    margin-left: 300px;
+    margin-top: 30px;
+    width: 80px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#create{
+    margin-top: -30px;
+    font-size: 1.2rem;
+    color: #4E94F4;
+}
