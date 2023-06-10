@@ -1,4 +1,4 @@
-=======import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import image from './backImage.png'
 export default function Landing() {
