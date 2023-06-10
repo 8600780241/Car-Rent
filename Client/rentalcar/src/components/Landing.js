@@ -37,8 +37,9 @@ export default function Landing() {
                 <div className='textPart1'>All you needed was a wheel in Your hand and four on the road.
                     <div id='route'>
                        <Link to="/userRegister"><div id='rRoute'>Register</div></Link> 
-                        <div id='aRoute'>Admin Login</div>
+                       <Link to="/admin/signIn" ><div id='aRoute'>Admin Login</div></Link> 
                     </div>
+                 
                 </div>
                 <div className='blockPart1'>
                     <p>Sign in your Account</p>
