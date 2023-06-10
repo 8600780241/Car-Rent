@@ -15,11 +15,20 @@ export default function UserRegister() {
     const [confirmPasswordError, setConfirmPasswordError] = useState(false)
     function registerhandle(e) {
         e.preventDefault()
-        console.log(name)
-        console.log(email)
-        console.log(number)
-        console.log(password)
-        console.log(confirmPassword)
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("contact", number);
+        formData.append("password", password);
+    
+        fetch(`http://localhost:8080/admin/register`, {
+          method: 'POST',
+          headers: {},
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .then(alert("Post created successfully"))
     }
     function nameHandler(e) {
         if (e.target.value.length < 3) {
