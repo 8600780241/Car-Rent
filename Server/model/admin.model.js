@@ -17,8 +17,7 @@ const adminSchema =new mongoose.Schema({
         type: String,
         required: [true, 'you have to register password']
     }
-}
-);
+});
 
 const Admin = mongoose.model('Admin', adminSchema);
 
