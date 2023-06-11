@@ -57,7 +57,7 @@ margin-top: 20px;
     text-align: left;
     font: normal normal normal 12px/22px Open Sans;
     letter-spacing: 0.16px;
-    color: #A5A1A1;
+    color: #595656;
     opacity: 1;
     margin-left: 10px;
 }
@@ -134,7 +134,7 @@ margin-top: 40px;
 .input2 {
     font: normal normal normal 16px/22px Open Sans;
 letter-spacing: 0.16px;
-color: #A5A1A1;
+color:#595656;
 opacity: 1;
 }
 #forgetPassword {
@@ -163,8 +163,13 @@ letter-spacing: 0px;
 color: #4E94F4;
 margin-left: 50px;
 }
-span {
+form > div {
     color: red;
+
+    font-weight: bold;
+    margin-left: 20px;
+}
+
 }
 #container{
     width:550px;
@@ -227,3 +232,4 @@ span {
      font-weight: bold;
     
     }
+
