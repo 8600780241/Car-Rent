@@ -1,0 +1,16 @@
+.form-container{
+    height: 500px;
+}
+
+.form-container input{
+    margin-top: 20px;
+    height: 40px;
+}
+
+#head-text{
+    margin-top: -20px;
+}
+
+.quotes{
+    color: #ffff;
+}

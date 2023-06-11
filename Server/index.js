@@ -10,8 +10,10 @@ const adminRouter = require('./router/admin.router')
 const bookingRouter=require('./router/booking.router')
 const PORT=process.env.PORT
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}))
+
 
 app.use(express.urlencoded({extended : true}))
 app.use(express.json());

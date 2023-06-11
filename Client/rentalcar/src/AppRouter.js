@@ -6,6 +6,9 @@ import Booking from "./components/Booking";
 import AdminSignIn from "./components/Admin/AdminSignIn";
 import CarDetails from "./components/Admin/CarDetails";
 import OrderPage from "./components/Orderpage";
+import AdminRegister from "./components/AdminRegister";
+import CarList from "./components/Admin/CarList";
+
 
 export default function AppRouter(){
      return<div>
@@ -17,6 +20,10 @@ export default function AppRouter(){
                 <Route path="/orderpage" element={<OrderPage/>}/>
                 <Route path="/admin/signIn" element={<AdminSignIn/>}/>
                 <Route path="carDetails" element={<CarDetails/>} />
+                <Route path="/carDetails" element={<CarDetails/>} />
+                <Route path="/orderPage" element={<OrderPage/>} />
+                <Route path="/adminRegister" element={<AdminRegister/>} />
+                <Route path="/adminCarList" element={<CarList/>}/>
             </Routes>
         </Router>
      </div>

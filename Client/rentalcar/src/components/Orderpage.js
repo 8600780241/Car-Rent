@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './styles/carlistpage.css'
+
 
 const OrderPage = () => {
     const [data, setData] = useState(null);
