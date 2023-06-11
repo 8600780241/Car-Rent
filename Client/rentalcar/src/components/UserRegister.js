@@ -1,102 +1,199 @@
-import React, { useState } from 'react'
-import image from './backImage.png'
-import { Link } from 'react-router-dom';
+// import React, { useState } from 'react'
+// import image from './backImage.png'
+// import { Link } from 'react-router-dom';
+
+// export default function UserRegister() {
+//     const [name, setName] = useState("");
+//     const [email, setEmail] = useState("");
+//     const [number, setNumber] = useState("");
+//     const [password, setPassword] = useState("");
+//     const [confirmPassword, setConfirmPassword] = useState("");
+//     const [nameError, setNameError] = useState(false);
+//     const [emailError, setEmailError] = useState(false);
+//     const [numberError, setNumberError] = useState(false);
+//     const [passwordError, setPasswordError] = useState(false);
+//     const [confirmPasswordError, setConfirmPasswordError] = useState(false)
+//     function registerhandle(e) {
+//         e.preventDefault()
+//         const formData = new FormData();
+//         formData.append("name", name);
+//         formData.append("email", email);
+//         formData.append("contact", number);
+//         formData.append("password", password);
+    
+//         fetch(`http://localhost:8080/admin/register`, {
+//           method: 'POST',
+//           headers: {},
+//           body: formData,
+//         })
+//           .then((response) => response.json())
+//           .then((data) => console.log(data))
+//           .then(alert("Post created successfully"))
+//     }
+//     function nameHandler(e) {
+//         if (e.target.value.length < 3) {
+//             setNameError(true)
+//         } else {
+//             setNameError(false)
+//         }
+//         setName(e.target.value)
+//     }
+//     function emailHandler(e) {
+//         let text = e.target.value;
+//         if (text.includes("@")) {
+//             setEmailError(false)
+//         } else {
+//             setEmailError(true)
+//         }
+//         setEmail(text)
+//     }
+//     function numberHandler(e) {
+//         let text = e.target.value;
+//         if (text.length > 10) {
+//             setNumberError(true)
+//         } else {
+//             setNameError(false)
+//         }
+//         setNumber(text)
+//     }
+//     function passwordHandler(e) {
+//         let text = e.target.value;
+//         if (text.includes("@") && text.length > 3) {
+//             setPasswordError(false)
+//         } else {
+//             setPasswordError(true)
+//         }
+//         setPassword(text)
+//     }
+//     function confirmPasswordHandler(e) {
+//         let text = e.target.value;
+//         if (text === password) {
+//             setConfirmPasswordError(false)
+//         } else {
+//             setConfirmPasswordError(true)
+//         }
+//         setConfirmPassword(text)
+//     }
+    
+//     return (
+//         <>
+//             <div>
+//                 <div id='logo'>Logo</div>
+//                 <div className='register' style={{ backgroundImage: `url(${image})` }}>
+//                     <div className='regiPart'>
+//                         <div className='textPart2'>All you needed was a wheel in Your hand and four on the road.</div>
+//                         <div className='blockPart2'>
+//                             <p>Register in your Account</p>
+//                             <form onSubmit={registerhandle}>
+//                                 <input type='text' className='input2' placeholder='Name' onChange={nameHandler} value={name} />{nameError ? <span>must more than 3 letters</span> : ""}<br></br>
+//                                 <input type='email' className='input2' placeholder='Email' onChange={emailHandler} value={email} />{emailError ? <span>email not valid</span> : ""}<br></br>
+//                                 <input type='number' className='input2' placeholder='Contact' onChange={numberHandler} value={number} />{numberError ? <span>mo. No. not valid</span> : ""}<br></br>
+//                                 <input type='password' className='input2' placeholder='password' onChange={passwordHandler} value={password} />{passwordError ? <span>password not valid</span> : ""} <br></br>
+//                                 <input type='password' className='input2' placeholder='confirm password' onChange={confirmPasswordHandler} value={confirmPassword} />{confirmPasswordError ?  <span>password not Matched</span> : "" }<br></br>
+//                                 <button id="registerButton" type='submit'>Register</button>
+//                             </form>
+//                             <Link to="/"><p id="l">Sign In</p></Link>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </>
+//     )
+// }
+
+
+import React from 'react'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function UserRegister() {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [number, setNumber] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [nameError, setNameError] = useState(false);
-    const [emailError, setEmailError] = useState(false);
-    const [numberError, setNumberError] = useState(false);
-    const [passwordError, setPasswordError] = useState(false);
-    const [confirmPasswordError, setConfirmPasswordError] = useState(false)
-    function registerhandle(e) {
-        e.preventDefault()
-        const formData = new FormData();
-        formData.append("name", name);
-        formData.append("email", email);
-        formData.append("contact", number);
-        formData.append("password", password);
-    
-        fetch(`http://localhost:8080/admin/register`, {
-          method: 'POST',
-          headers: {},
-          body: formData,
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data))
-          .then(alert("Post created successfully"))
-    }
-    function nameHandler(e) {
-        if (e.target.value.length < 3) {
-            setNameError(true)
-        } else {
-            setNameError(false)
-        }
-        setName(e.target.value)
-    }
-    function emailHandler(e) {
-        let text = e.target.value;
-        if (text.includes("@")) {
-            setEmailError(false)
-        } else {
-            setEmailError(true)
-        }
-        setEmail(text)
-    }
-    function numberHandler(e) {
-        let text = e.target.value;
-        if (text.length > 10) {
-            setNumberError(true)
-        } else {
-            setNameError(false)
-        }
-        setNumber(text)
-    }
-    function passwordHandler(e) {
-        let text = e.target.value;
-        if (text.includes("@") && text.length > 3) {
-            setPasswordError(false)
-        } else {
-            setPasswordError(true)
-        }
-        setPassword(text)
-    }
-    function confirmPasswordHandler(e) {
-        let text = e.target.value;
-        if (text === password) {
-            setConfirmPasswordError(false)
-        } else {
-            setConfirmPasswordError(true)
-        }
-        setConfirmPassword(text)
-    }
-    
-    return (
-        <>
-            <div>
-                <div id='logo'>Logo</div>
-                <div className='register' style={{ backgroundImage: `url(${image})` }}>
-                    <div className='regiPart'>
-                        <div className='textPart2'>All you needed was a wheel in Your hand and four on the road.</div>
-                        <div className='blockPart2'>
-                            <p>Register in your Account</p>
-                            <form onSubmit={registerhandle}>
-                                <input type='text' className='input2' placeholder='Name' onChange={nameHandler} value={name} />{nameError ? <span>must more than 3 letters</span> : ""}<br></br>
-                                <input type='email' className='input2' placeholder='Email' onChange={emailHandler} value={email} />{emailError ? <span>email not valid</span> : ""}<br></br>
-                                <input type='number' className='input2' placeholder='Contact' onChange={numberHandler} value={number} />{numberError ? <span>mo. No. not valid</span> : ""}<br></br>
-                                <input type='password' className='input2' placeholder='password' onChange={passwordHandler} value={password} />{passwordError ? <span>password not valid</span> : ""} <br></br>
-                                <input type='password' className='input2' placeholder='confirm password' onChange={confirmPasswordHandler} value={confirmPassword} />{confirmPasswordError ?  <span>password not Matched</span> : "" }<br></br>
-                                <button id="registerButton" type='submit'>Register</button>
-                            </form>
-                            <Link to="/"><p id="l">Sign In</p></Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+//   const [name, setName] = useState('')
+//   const [email, setEmail] = useState('')
+//   const [contact, setContact] = useState('')
+//   const [password, setPassword] = useState('')
+//   const [confirmPassword, setConfirmPassword] = useState('')
+
+  const [formData, setFormaData] = useState({
+    name : "",
+    email: "",
+    contact : "",
+    password : ""
+  })
+
+  const navigate = useNavigate()
+
+  function setFormValues(e){
+    setFormaData({
+        ...formData,
+        [e.target.name] : e.target.value
+    })
+  }
+  console.log(formData)
+  async function submitForm(e) {
+    e.preventDefault()
+
+    fetch("http://localhost:8080/admin/register", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .then(alert("Post created successfully"))
+  }
+  return (
+    <div>
+      <div className="form-container">
+        <form onSubmit={submitForm} encType='multipart/form-data'>
+
+          <input
+            id='name'
+            type="text"
+            placeholder="Name"
+            name="name" required
+            onChange={setFormValues}
+            value={formData.name}
+          />
+
+          <input
+            className='email'
+            type="text"
+            name='email'
+            placeholder="Email"
+            required value={formData.email}
+            onChange={setFormValues}
+          />
+
+          <input
+            className='contact'
+            type="text"
+            placeholder="Contact" required
+            name='contact'
+            value={formData.contact} onChange={setFormValues}
+          />
+
+          <input
+            className='password'
+            type="text"
+            placeholder="Password" required
+            name='password'
+            value={formData.password} onChange={setFormValues}
+          />
+{/* 
+          <input
+            className='confirmPassword'
+            type="text"
+            placeholder="Password" required
+            value={confirmPassword} onChange={setFormValues}
+          /> */}
+
+          <button id="btn" type="submit">Post</button>
+
+        </form>
+      </div>
+    </div>
+  )
 }

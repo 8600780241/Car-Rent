@@ -38,8 +38,7 @@ export default function Landing() {
                     <div id='route'>
                        <Link to="/userRegister"><div id='rRoute'>Register</div></Link> 
                        <Link to="/admin/signIn" ><div id='aRoute'>Admin Login</div></Link> 
-                    </div>
-                 
+                    </div> 
                 </div>
                 <div className='blockPart1'>
                     <p>Sign in your Account</p>
