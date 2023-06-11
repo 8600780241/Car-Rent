@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CarDetails() {
 
-    // const carName
+    
 
     return <div>
         <h4>Add Car Details</h4>
