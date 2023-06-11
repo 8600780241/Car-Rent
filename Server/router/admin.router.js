@@ -36,6 +36,7 @@ adminRouter.post("/register", (req, res) => {
 
 adminRouter.post('/login',(req,res) => {
     const adminInfo = req.body
+    console.log(adminInfo)
     admin.findOne({email : adminInfo.email}).then(adminn => {
         if(adminn){
             return bcrypt.compare(adminInfo.password,adminn.password).then(authStatus => {
