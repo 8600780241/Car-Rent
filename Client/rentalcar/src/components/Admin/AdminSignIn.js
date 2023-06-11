@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import background from '../../images/self-drive-norwa-car-people.png'
 import './AdminSignIn.css'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function AdminSignIn() {
 
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -28,8 +30,10 @@ export default function AdminSignIn() {
       body: JSON.stringify(formData),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
-    //   .then(alert("Post created successfully"))
+      .then((data) => {
+        localStorage.setItem("token", data.data)
+        navigate('/adminCarList')
+      })
     }
 
     return <div>

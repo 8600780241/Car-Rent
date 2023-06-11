@@ -25,7 +25,7 @@ export default function AdminRegister() {
   async function submitForm(e) {
     e.preventDefault()
 
-    fetch("sample", {
+    fetch("http://localhost:8080/admin/register", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,8 +39,12 @@ export default function AdminRegister() {
   return (
     <div >
         <div id='logo'>Logo</div>
-        
         <div className='register' style={{ backgroundImage: `url(${image})` }}>
+        <div className='quotes'>
+                <p> All you needed was a  wheel</p>
+                <p>in Your hand and four on</p>
+                <p>the road.</p>
+            </div>
         <div className="form-container">
         <form onSubmit={submitForm} encType='multipart/form-data'>
         <p id='head-text'>Register in your Account</p>
@@ -92,5 +96,4 @@ export default function AdminRegister() {
         </div>
     </div>
   )
-}
 }

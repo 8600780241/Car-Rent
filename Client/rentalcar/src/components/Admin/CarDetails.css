@@ -1,0 +1,26 @@
+#logout{
+    float: right;
+    font-size: 1rem;
+    color: #707070;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+.body-container{
+    border: 1px solid #707070;
+    display: flex;
+    justify-content: space-around;
+}
+
+.inline-input{
+    display: inline-block;
+    margin-right: 100px;
+}
+
+.body-container label{
+    margin-top: 40px;
+}
+
+#description input{
+    height: 200px;
+}

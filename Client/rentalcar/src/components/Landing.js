@@ -2,23 +2,7 @@ import React, { useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import image from './backImage.png'
 export default function Landing() {
-    const [formData, setFormData] = useState({
-        email: "",
-        password: ""
-    })
-    const [errorData, setErrorData] = useState("");
-    function validate() {
-        const { email, password } = formData;
-        if (!email || !password) {
-            return "All fields are mandatory";
-        }
-        if (!(email.includes("@"))) {
-            return "email must contain @";
-        }
-        if (password.length < 6) {
-            return "password must contains atleast 6 letters";
-        }
-    }
+  
     function signInHandler(e) {
         e.preventDefault();
         const error = validate();
