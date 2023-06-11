@@ -2,37 +2,9 @@ import React, { useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import image from './backImage.png'
 export default function Landing() {
-    //     const [user,setUser] = useState("");
-    //     const [password,setPassword] = useState("");
-    //     const [userError,setUserError] = useState(false);
-    //     const [userPassword,setUserPassword] = useState(false);
-    //  function signInHandler(e) {
-    //     e.preventDefault();
-    //     // console.log(user)
-    //     // console.log(password)
-    //  }
-    //  function userHandler(e) {
-    //     let text = e.target.value;
-    //     if(text.includes("@") || text.length > 3) {
-    //         setUserError(false);
-    //     } else {
-    //         setUserError(true)
-    //     }
-    //     setUser(text)
-    //  }
-
-    //  function passwordHandler(e) {
-    //     let text = e.target.value;
-    //     if(text.includes("#") || text.includes("@") || text.length > 6) {
-    //         setUserPassword(false)
-    //     } else {
-    //         setUserPassword(true)
-    //     }
-    //     setPassword(text)
-    //  }
     const [formData, setFormData] = useState({
         email: "",
-        password: "",
+        password: ""
     })
     const [errorData, setErrorData] = useState("");
     function validate() {
@@ -41,10 +13,10 @@ export default function Landing() {
             return "All fields are mandatory";
         }
         if (!(email.includes("@"))) {
-            return "email must contain @"
+            return "email must contain @";
         }
         if (password.length < 6) {
-            return "password must contains atleast 6 letters"
+            return "password must contains atleast 6 letters";
         }
     }
     function signInHandler(e) {
@@ -62,9 +34,15 @@ export default function Landing() {
             <div className='signInPart1'>
                 <div className='textPart1'>All you needed was a wheel in Your hand and four on the road.
                     <div id='route'>
+
                         <Link to="/userRegister"><div id='rRoute'>Register</div></Link>
                         <Link to="/admin/signIn"><div id='aRoute'>Admin Login</div></Link>
                     </div>
+
+                       <Link to="/userRegister"><div id='rRoute'>Register</div></Link> 
+                       <Link to="/admin/signIn" ><div id='aRoute'>Admin Login</div></Link> 
+                    </div> 
+
                 </div>
                 <div className='blockPart1'>
                     <p>Sign in your Account</p>
