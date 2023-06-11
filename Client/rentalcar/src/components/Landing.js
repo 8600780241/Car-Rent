@@ -8,8 +8,6 @@ export default function Landing() {
     const [userPassword,setUserPassword] = useState(false);
  function signInHandler(e) {
     e.preventDefault();
-    // console.log(user)
-    // console.log(password)
  }
  function userHandler(e) {
     let text = e.target.value;
