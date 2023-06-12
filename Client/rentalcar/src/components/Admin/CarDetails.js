@@ -38,6 +38,7 @@ export default function CarDetails() {
         formData.append("carDetails", carDetails);
         formData.append("Details", Details);
 
+        console.log(formData)
     
         fetch("http://localhost:8080/cars/postCar", {
           method: 'POST',
