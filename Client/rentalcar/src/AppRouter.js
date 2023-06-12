@@ -6,7 +6,7 @@ import Booking from "./components/Booking";
 import AdminSignIn from "./components/Admin/AdminSignIn";
 import CarDetails from "./components/Admin/CarDetails";
 import OrderPage from "./components/Orderpage";
-
+import BookingDetails from "./components/BookingDetails/bookingDetails";
 
 
 export default function AppRouter(){
@@ -19,6 +19,7 @@ export default function AppRouter(){
                 <Route path="/admin/signIn" element={<AdminSignIn/>}/>
                 <Route path="/carDetails" element={<CarDetails/>} />
                 <Route path="/orderPage" element={<OrderPage/>} />
+                <Route path="/bookingDetails" element={<BookingDetails/>}/>
             </Routes>
         </Router>
      </div>
