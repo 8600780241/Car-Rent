@@ -19,6 +19,10 @@ export default function AdminSignIn() {
         })
     }
 
+    function takeToCreateAdmin(e){
+        navigate("/adminRegister")
+    }
+
     function submitForm(e) {
         e.preventDefault()
 
@@ -61,7 +65,7 @@ export default function AdminSignIn() {
                     <p id='text'>Forget password?</p>
                     <button id='btn' type='submit'>SIGN IN</button>
                 </form>
-                <p id='create'>Create Account</p>
+                <p id='create' onClick={takeToCreateAdmin}>Create Account</p>
             </div>
             <div className='quote'>
                 <p> All you needed was a  wheel</p>

@@ -27,7 +27,17 @@ carsRouter.get("/getCars", async (req,res)=>{
     }
 })
 
+carsRouter.get("/getCars/:id", async (req,res)=>{
+    try{
+       const data = await carDetails.find({_id: req.params.id})
+       res.json(data)
+    }catch(err){
+        console.log(err)
+    }
+})
+
 carsRouter.post("/postCar",upload.single('image'),(req,res)=>{
+    console.log(req.body)
         const Car = new carDetails({
         name: req.body.name,
         type: req.body.type,
@@ -52,6 +62,34 @@ carsRouter.post("/postCar",upload.single('image'),(req,res)=>{
             error : "Failed to save carDetails"
         })
     })
+})
+
+
+carsRouter.put('/updateCar/:id', async (req, res) => {
+    const id = req.params.id
+    console.log(id)
+
+    try {
+        const Car = await carDetails.findById(id)
+        if (Car) {
+            console.log(req.body)
+            const newCar = await carDetails.findByIdAndUpdate(id, req.body)
+            const updatedCar = await newCar.save()
+            res.status(200).json({
+                status: "success",
+                result: updatedCar
+            })
+        } else {
+            res.status(401).json({
+                message: "data not found"
+            })
+        }
+    }
+    catch {
+        err => res.json({
+            message: err.message
+        })
+    }
 })
 
 module.exports = carsRouter
