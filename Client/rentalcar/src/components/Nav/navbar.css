@@ -1,0 +1,19 @@
+#navbar{
+
+    display: flex;
+    position: relative;
+    height: 50px;
+    font-size: larger;
+    padding-top:5px;
+    box-shadow: 5px;
+    background-color: antiquewhite;
+    
+}
+#navbooking{
+position: relative;
+left: 75%;
+}
+#navlogout{
+    position: relative;
+left: 80%;
+}

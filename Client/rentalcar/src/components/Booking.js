@@ -1,6 +1,7 @@
 
 import { useNavigate } from 'react-router-dom';
 import React, { useState} from 'react';
+import NAvLogout from './Nav/NavLogout';
 export default function Booking() {
     const [inputdata, setInputData] = useState({
         origin: "",
@@ -37,8 +38,6 @@ export default function Booking() {
           body: JSON.stringify(data)
         });
         console.log(data)
-        console.log(response)
-    
         if (data) {
           // Handle successful response, e.g., show a success message
           navigate('/orderpage');
@@ -50,8 +49,8 @@ export default function Booking() {
   }
 
   return (
-    <div>
-      <div id='logo'>Logo</div>
+    <div id='maincontainer'>
+      <NAvLogout/>
       <div id="parent" >
         <h1 id="welcome">W E L C O M E !!</h1>
         <div id='container'>

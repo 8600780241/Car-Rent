@@ -8,6 +8,8 @@ import CarDetails from "./components/Admin/CarDetails";
 import OrderPage from "./components/Orderpage";
 import AdminRegister from "./components/AdminRegister";
 import CarList from "./components/Admin/CarList";
+import MyBooking from "./components/Nav/MyBooking";
+import PaymentDetails from "./components/Payment/ParentComponent";
 
 
 export default function AppRouter(){
@@ -24,6 +26,9 @@ export default function AppRouter(){
                 <Route path="/orderPage" element={<OrderPage/>} />
                 <Route path="/adminRegister" element={<AdminRegister/>} />
                 <Route path="/adminCarList" element={<CarList/>}/>
+                <Route path="/mybooking" element={<MyBooking/>}/>
+                <Route path="/payment" element={<PaymentDetails/>}/>
+                <Route path="/carlist" element={<CarList/>}/>
             </Routes>
         </Router>
      </div>
