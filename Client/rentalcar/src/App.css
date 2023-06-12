@@ -118,10 +118,10 @@ padding-top: 25px;
     width: 340px;
     height: 360px;
     background-color: #FFFFFF;
-    margin-top: 160px;
-    margin-left: 280px;
+    margin-left: 1000px;
     border-radius: 6px;
-  
+  position: relative;
+  bottom: 350px;
 }
 .blockPart1 > p {
     font: normal normal normal 18px/30px Open Sans;
