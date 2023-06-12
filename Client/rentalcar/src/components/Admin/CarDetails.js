@@ -39,6 +39,7 @@ export default function CarDetails() {
         formData.append("carDetails", carDetails);
         formData.append("Details", Details);
 
+        console.log(formData)
     
         fetch("http://localhost:8000/cars/postCar", {
           method: 'POST',
@@ -80,9 +81,9 @@ export default function CarDetails() {
                         onChange={(e) => setType(e.target.value)}
                         >
                             <option selected>Select</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="XUV">XUV</option>
+                            <option value="UV">UV</option>
+                            <option value="ALL">ALL</option>
                         </select>
                     </div>
 
@@ -92,9 +93,9 @@ export default function CarDetails() {
                         onChange={(e) => setModel(e.target.value)}
                         >
                             <option selected>Select</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="Basic">Basic</option>
+                            <option value="Mid-range">Mid Range</option>
+                            <option value="Premium">Premium</option>
                         </select>
                     </div>
                     </div>
@@ -106,9 +107,11 @@ export default function CarDetails() {
                         onChange={(e) => setMilage(e.target.value)}
                         >
                             <option selected>Select</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="20Km/L">20Km/L</option>
+                            <option value="14Km/L">14Km/L</option>
+                            <option value="15Km/L">15Km/L</option>
+                            <option value="18Km/L">18Km/L</option>
+                            <option value="10Km/L">10Km/L</option>
                         </select>
                     </div>
 

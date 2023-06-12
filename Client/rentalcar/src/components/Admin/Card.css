@@ -1,0 +1,53 @@
+.card{
+    width: 300px;
+    height: 230px;
+    border: none;
+    box-shadow: 0px 10px 6px #00000029;
+    display: inline-block;
+    margin-left: 25px;
+    margin-bottom: 30px;
+}
+
+.card img{
+    width: 100%;
+    /* aspect-ratio: 3/4; */
+    object-fit: cover;
+    max-height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card .img-container{
+    height: 60%;
+}
+
+.card-body{
+    padding: 5px;
+}
+
+#one{
+    color: #7C7C7C;
+    margin-bottom: 0px;
+}
+
+#car-name{
+    color: #1E1E1E;
+    font-size: 1.2rem;
+}
+
+#per-km{
+    float: right;
+    margin-right: 10px;
+    color: #32C348;
+    font-weight: bold;
+}
+
+#two{
+    font-size: 0.8rem;
+}
+
+#date-format{
+    float: right;
+    font-weight: bold;
+    margin-right: 10px;
+}

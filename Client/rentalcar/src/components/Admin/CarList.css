@@ -1,0 +1,36 @@
+.carList-header span{
+    margin-left: 30px;
+}
+
+#logo{
+    margin-top: 20px;
+}
+
+.carList-body{
+    border-top: 1px solid #E5E5E5;
+    padding: 30px 100px;
+    height: auto;
+}
+
+.carList-body h1{
+    margin-left: 24px;
+}
+
+.car-text{
+    font-size: 1.5rem;
+    margin-bottom: -5px;
+    margin-top: 20px;
+    margin-left: 24px;
+}
+
+.add-car-button{
+    float: right;
+    margin-top: -50px;
+    margin-right: 25px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: #4E94F4;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
