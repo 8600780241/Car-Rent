@@ -6,6 +6,10 @@
     margin-top: 20px;
 }
 
+#logout{
+    cursor: pointer;
+}
+
 .carList-body{
     border-top: 1px solid #E5E5E5;
     padding: 30px 100px;

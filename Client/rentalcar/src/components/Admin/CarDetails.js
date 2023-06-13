@@ -38,8 +38,6 @@ export default function CarDetails() {
         formData.append("description", description);
         formData.append("carDetails", carDetails);
         formData.append("Details", Details);
-
-        console.log(formData)
     
         fetch("http://localhost:8000/cars/postCar", {
           method: 'POST',
@@ -52,10 +50,15 @@ export default function CarDetails() {
           .then((data) => navigate('/adminCarList'))
       }
 
+      function logout(e) {
+        localStorage.removeItem("token")
+        navigate('/admin/signIn')
+    }
+
     return <div>
         <header id="logo">
             LOGO
-            <span id="logout">Logout</span>
+            <span id="logout" onClick={logout}>Logout</span>
         </header>
         <div>
             <form className="body-container" onSubmit={submitForm}>
