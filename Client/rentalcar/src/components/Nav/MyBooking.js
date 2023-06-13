@@ -19,7 +19,7 @@ function editHandle(d){
 
   useEffect(() => {
     
-      fetch(`http://localhost:8000/order/${userId}`)
+      fetch(`http://localhost:8080/order/${userId}`)
         .then((res) => res.json())
         .then((data) => setBookData(data.data.reverse()))
         .catch((error) => {
@@ -31,7 +31,7 @@ function editHandle(d){
   
   function deleteCarData(id){
 
-    fetch(`http://localhost:8000/order/${id}`, {
+    fetch(`http://localhost:8080/order/${id}`, {
 
         method: 'DELETE',
         headers:{
@@ -57,7 +57,7 @@ function editHandle(d){
                         <p>My Booking </p>
                         <div className="bookings">
                             <div id="myimg" className="smallerDiv" >
-                                <img src={`http://localhost:8000/cars/images/${d.image}`} width="250px" />
+                                <img src={`http://localhost:8080/cars/images/${d.image}`} width="250px" />
                             </div>
 
                             <div id="toyota" className="smallerDiv">

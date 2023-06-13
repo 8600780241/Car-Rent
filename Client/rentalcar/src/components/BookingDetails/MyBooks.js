@@ -19,7 +19,7 @@ export default function MyBooks(){
   
     useEffect(() => {
       
-        fetch(`http://localhost:8000/order/${userId}`)
+        fetch(`http://localhost:8080/order/${userId}`)
           .then((res) => res.json())
           .then((data) => setBookData(data.data.reverse()))
           .catch((error) => {
@@ -31,7 +31,7 @@ export default function MyBooks(){
     
     function deleteCarData(id){
   
-      fetch(`http://localhost:8000/order/${id}`, {
+      fetch(`http://localhost:8080/order/${id}`, {
   
           method: 'DELETE',
           headers:{

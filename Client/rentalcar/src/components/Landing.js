@@ -37,7 +37,7 @@ export default function Landing() {
       .then((response) => response.json())
       .then((data) => {
         localStorage.setItem("token", data.data)
-        navigate('/bookingDetails')
+        navigate('/booking')
       })
       .catch(err => {
         setErrorMessage(err.message)
@@ -78,9 +78,17 @@ export default function Landing() {
                 <p>the road.</p>
             </div>
             <div className='nav'>
+                <div>
                 <Link to={'/'}>
                     User Sign In
                 </Link>
+                </div>
+                <div>
+                <Link to={'/admin/signIn'}>
+                    Admin Sign In
+                </Link>
+                </div>
+                
             </div>
         </div>
     </div>

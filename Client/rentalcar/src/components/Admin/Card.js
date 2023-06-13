@@ -11,7 +11,7 @@ export default function Card(props) {
     return<div className="card">
         <Link to={`/editCarDetails/${item._id}`}>
         <div className="img-container">
-            <img src={`http://localhost:8000/cars/images/${item.image}`} alt="sample" />
+            <img src={`http://localhost:8080/cars/images/${item.image}`} alt="sample" />
         </div>
         </Link>
         <div className="card-body">

@@ -6,9 +6,6 @@ import UserCarList from './UserCarList'
 import BookingDetails from './BookingDetails/bookingDetails';
 import { Link } from 'react-router-dom';
 
-
-
-
 const OrderPage = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
@@ -17,7 +14,7 @@ const OrderPage = () => {
   
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8000/booking/booking');
+        const response = await fetch('http://localhost:8080/booking/booking');
         if (response) {
           const responseData = await response.json();
           const lastBooking = responseData[responseData.length - 1];

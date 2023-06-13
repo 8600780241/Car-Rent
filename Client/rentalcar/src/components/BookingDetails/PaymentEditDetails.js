@@ -20,7 +20,7 @@ export default function PaymentEditDetails() {
   function editformsubmitFunc(e){
     e.preventDefault();
 
-    fetch(`http://localhost:8000/order/${EditPaymentDetails._id}` , {
+    fetch(`http://localhost:8080/order/${EditPaymentDetails._id}` , {
 
       method:"PATCH",
       headers:{
@@ -42,7 +42,7 @@ export default function PaymentEditDetails() {
     <label>Car Name</label>
     
      <span id="name-of-the-car-edit-payment">{name}</span><br></br>
-    <img src={`https://car-rental-app-server.onrender.com/cars/${image}`} id="image-edit-payment-details-in-data"></img>
+    <img src={`http://localhost:8080/cars/getCars/${image}`} id="image-edit-payment-details-in-data"></img>
     <label>Car Number</label>
     <span className="name-of-the-span-css-for-payment-details" id="type-of-the-car-in-payment">Ayx123</span><br/>
     </div>
