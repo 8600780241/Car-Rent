@@ -11,6 +11,7 @@ export default function AdminSignIn() {
         email: "",
         password: ""
     })
+    const [errorMessage, setErrorMessage] = useState("")
 
    function setForm(e) {
         setFormData({
@@ -26,7 +27,7 @@ export default function AdminSignIn() {
     function submitForm(e) {
         e.preventDefault()
 
-        fetch("http://localhost:8080/admin/login", {
+      fetch("http://localhost:8080/admin/login", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,6 +39,10 @@ export default function AdminSignIn() {
         localStorage.setItem("token", data.data)
         navigate('/adminCarList')
       })
+      .catch(err => {
+        setErrorMessage(err.message)
+      })
+      console.log(errorMessage)
     }
 
     return <div>
