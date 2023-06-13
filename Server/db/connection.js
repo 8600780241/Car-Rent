@@ -10,4 +10,3 @@ mongoose.connect(BASE_URL)
         console.log("Failed to connect to db")
     })
 
-

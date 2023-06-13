@@ -34,7 +34,7 @@ export default function Booking() {
       };
     
       try {
-        const response = fetch('http://localhost:8000/booking/booking', {
+        const response = fetch('http://localhost:8080/booking/booking', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

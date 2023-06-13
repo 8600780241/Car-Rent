@@ -51,7 +51,7 @@ export default function AdminSignIn() {
         </header>
         <div className='landing' style={{ backgroundImage: `url(${background})` }}>
             <div className='form-container'>
-                <p>Sign in your Account</p>
+                <p id='texts'>Sign in your Account</p>
                 <form onSubmit={submitForm}>
                     <input
                         type='text'

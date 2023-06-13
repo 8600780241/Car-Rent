@@ -12,7 +12,7 @@ export default function UserCarList() {
 
   const fetchCarData = async () => {
     try {
-      const response = await fetch('http://localhost:8000/cars/getCars');
+      const response = await fetch('http://localhost:8080/cars/getCars');
       if (response.ok) {
         const carData = await response.json();
         setData(carData);
@@ -34,7 +34,7 @@ export default function UserCarList() {
             <div id="carcard" key={car._id}>
               <div>
                 <img
-                  src={`http://localhost:8000/cars/images/${car.image}`}
+                  src={`http://localhost:8080/cars/images/${car.image}`}
                   alt={car.model}
                   style={{ width: '200px' }}
                 />

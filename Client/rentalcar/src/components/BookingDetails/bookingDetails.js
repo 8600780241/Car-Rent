@@ -21,7 +21,7 @@ export default function BookingDetails({props}) {
   
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8000/booking/booking');
+        const response = await fetch('http://localhost:8080/booking/booking');
         if (response) {
           const responseData = await response.json();
           const lastBooking = responseData[responseData.length - 1];
@@ -69,7 +69,7 @@ if(!isNaN(data?.distance)){
     const Proceed = () => {
   
 
-        fetch("http://localhost:8000/order",{
+        fetch("http://localhost:8080/order",{
         method:"POST",
         headers:{
          "content-type":"application/json"
