@@ -10,8 +10,12 @@ import BookingDetails from "./components/BookingDetails/bookingDetails";
 import AdminRegister from "./components/AdminRegister";
 import CarList from "./components/Admin/CarList";
 import MyBooking from "./components/Nav/MyBooking";
-import PaymentDetails from "./components/Payment/ParentComponent";
 import EditCarDetails from "./components/Admin/EditCarDetails";
+import UserCarList from "./components/UserCarList";
+import PaymentEditDetails from "./components/BookingDetails/PaymentEditDetails";
+import MyBook from "./components/BookingDetails/MyBook";
+import MyBooks from "./components/BookingDetails/MyBooks";
+
 
 export default function AppRouter() {
     return <div>
@@ -24,14 +28,16 @@ export default function AppRouter() {
                 <Route path="/admin/signIn" element={<AdminSignIn/>}/>
                 <Route path="carDetails" element={<CarDetails/>} />
                 <Route path="/carDetails" element={<CarDetails/>} />
+                <Route path="/mybook" element={<MyBook/>}/>
                 <Route path="/orderPage" element={<OrderPage/>} />
                 <Route path="/bookingDetails" element={<BookingDetails/>}/>
                 <Route path="/adminRegister" element={<AdminRegister/>} />
                 <Route path="/adminCarList" element={<CarList/>}/>
                 <Route path="/mybooking" element={<MyBooking/>}/>
-                <Route path="/payment" element={<PaymentDetails/>}/>
-                <Route path="/carlist" element={<CarList/>}/>
+                <Route path="/carlist" element={<UserCarList/>}/>
+                <Route path="/mybooks" element={<MyBooks/>}/>
                 <Route path="/editCarDetails/:id" element={<EditCarDetails/>} />
+                <Route path="/editpaymentdetails/" element={<PaymentEditDetails/>}/>
             </Routes>
         </Router>
     </div>

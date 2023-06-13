@@ -9,23 +9,26 @@ const orderRegisterCtrl = async (req, res) => {
 }
 };
 
-
 const getOrdersCtrl = async (req, res) => {
-    try {
-      const UserId= req.params.id
-      const allOrders = await Orders.find({userId:UserId});
-      res.status(200).json({
-        status: "success",
-        data: allOrders,
-      });
-    } catch (err) {
-      console.log(err);
-      res.status(500).json({
-        status: "error",
-        message: "Internal server error",
-      });
-    }
-  };
+    const userId = req.params.id;
+      
+        Orders.find({ userId })
+          .then((orders) => {
+            res.status(200).json({
+              success: true,
+              data: orders,
+            });
+          })
+          .catch((error) => {
+            console.log("Error fetching orders:", error);
+            res.status(500).json({
+              success: false,
+              error: "Failed to fetch orders",
+            });
+          });
+      };
+      
+  
 
 
 const deleteOrderCtrl= async(req,res)=>{
