@@ -1,14 +1,21 @@
 import React from 'react'
 import './BookingDetail.css'
+
 import image from './0_578_872_0_70_http___cdni.autocarindia.com_ExtraImages_20170911074216_Crysta_New@2x.png'
 export default function BookingDetails() {
+    const token = localStorage.getItem('token')
+    function logout(e) {
+        localStorage.removeItem("token")
+       
+    }
+    
     return (
         <>
             <div className='main-conatainer'>
                 <nav>
                     <div id='fnav'>LOGO</div>
                     <div id='snav'>My Booking</div>
-                    <div id='tnav'>Logout</div>
+                    <div id='tnav' onClick={logout}>Logout</div>
                 </nav>
                 <div className='main'>
                     <div className='first'>
