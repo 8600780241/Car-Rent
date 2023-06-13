@@ -1,55 +1,78 @@
 const express = require('express');
-const router = express.Router();
-const user = require('../model/user.model')
-const bcrypt = require('bcryptjs')
+const user = require("../model/user.model")
+const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'dcfyu6t67435467%#4748996iugyut6'
-/* GET users listing. */
-router.get('/', function (req, res) {
-  res.send("hello");
-});
-router.post('/registerUser', async function (req, res) {
-  let data = req.body;
-  const encryptedPassword = await bcrypt.hash(data.password, 10);
-  const oldUser = await user.findOne({
-    email: data.email
-  })
-  if (oldUser) {
-    return res.json({ error: "user Exists" })
-  }
-  let result = new user({
-    name: data.name,
-    email: data.email,
-    contact: data.contact,
-    password: encryptedPassword
-  })
-  let ans = await result.save();
-  res.send(ans)
-  console.log(ans)
+const { userInfo } = require('os');
 
+const userRouter = express.Router();
+
+userRouter.post("/register", (req, res) => {
+    const userInfo = req.body
+
+    bcrypt.hash(userInfo.password, 10).then((encryptedPassword) => {
+        const User = new user({
+            name : userInfo.name,
+            email : userInfo.email,
+            contact : userInfo.contact,
+            password : encryptedPassword
+        })
+        User.save().then(newUser => {
+            res.status(201).json({
+                message : "Encryption Successfull",
+                data : newUser
+            })
+        }).catch(err => {
+            res.json({
+                message: "Failed to encrypt the password",
+                error : err
+            })
+        })
+    }).catch(err => {
+        res.json({
+            message : "Failed to create new user",
+            error : err
+        })
+    })
 })
 
-router.post("/loginUser", async (req,res) => {
-  const {email, password } = req.body;
-  const User = await user.findOne({email});
-  if (!User) {
-    return res.json({ error: "user not found" })
-  }
-  if(await bcrypt.compare(password,User.password)) {
-    const token = jwt.sign({
-      email:User.email,
-      id:user._id
-    },JWT_SECRET,
-    {
-      expiresIn : "1h"
-  }
-    );
-    if(res.status (201)) {
-      return res.json({status:"ok", data:token})
-    } else {
-      return res.json({error:"error"})
-    }
-  }
-  res.json({status:"error",error:"invalid password"})
-});
-module.exports = router;
+userRouter.post('/login',(req,res) => {
+    const userInfo = req.body
+    console.log(userInfo)
+    user.findOne({email : userInfo.email}).then(userr => {
+        if(userr){
+            return bcrypt.compare(userInfo.password,userr.password).then(authStatus => {
+                if(authStatus){
+                    return jwt.sign({
+                        email : userr.email,
+                        id : userr._id
+                    },
+                    "10X_ACADEMY",
+                    {
+                        expiresIn : "1h"
+                    },(err,token) => {
+                        console.log(token)
+                        if(err){
+                           return res.json({
+                                message : "Authentication failed",
+                                error : err
+                            })
+                        }else{
+                           return res.json({
+                                message : "Authentication successfull",
+                                data : token
+                            })
+                        }
+                    })
+                }
+            })
+            .catch(err => {
+                res.json({
+                    message : "Authentication failed",
+                    error : err
+                })
+            })
+        }
+    })
+})
+
+module.exports = userRouter;

@@ -2,109 +2,99 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import image from './backImage.png'
+import './AdminRegister.css';
 import { Link } from 'react-router-dom';
-import './AdminRegister.css'
-import './UserRegister.css'
 
+export default function UserRegister() {
 
-export default function AdminRegister() {
-  const [formData, setFormaData] = useState({
-    name: "",
-    email: "",
-    contact: "",
-    password: "",
-    confirmpassword: ""
-  })
-
-  const navigate = useNavigate()
-
-  function setFormValues(e) {
-    setFormaData({
-      ...formData,
-      [e.target.name]: e.target.value
+    const [formData, setFormaData] = useState({
+        name: "",
+        email: "",
+        contact: "",
+        password: ""
     })
-  }
 
-  async function submitForm(e) {
-    e.preventDefault()
+    const navigate = useNavigate()
+
+    function setFormValues(e) {
+        setFormaData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
+    }
     console.log(formData)
+    async function submitForm(e) {
+        e.preventDefault()
 
-    let res = fetch("http://localhost:8000/user/registerUser", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-      }
-      )
-      .catch((err) => {throw new err})
+        fetch("http://localhost:8080/user/register", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .then(navigate('/'))
+    }
+    return (
+        <div className='page-container'>
+            <div id='logo'>Logo</div>
+            <div className='register' id='first' style={{ backgroundImage: `url(${image})` }}>
+                <div className='quotes' id='quotes'>
+                    <p> All you needed was a  wheel</p>
+                    <p>in Your hand and four on</p>
+                    <p>the road.</p>
+                    <div>
+                        <Link to="/admin/signIn">
+                            <div id='admin-nav'>
+                            Admin Sign In
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+                <div className="form-container" id='forma'>
+                    <form onSubmit={submitForm} encType='multipart/form-data'>
+                        <p id='head-text'>Register in your Account</p>
+                        <input
+                            id='name'
+                            type="text"
+                            placeholder="Name"
+                            name="name" required
+                            onChange={setFormValues}
+                            value={formData.name}
+                        />
 
-  }
-  function register() {
-    navigate("/")
-  }
-  return (
-    <div >
-      <div id='logo'>Logo</div>
+                        <input
+                            className='email'
+                            type="text"
+                            name='email'
+                            placeholder="Email"
+                            required value={formData.email}
+                            onChange={setFormValues}
+                        />
 
-      <div className='register' style={{ backgroundImage: `url(${image})` }}>
-        <div className='text'>All you needed was a wheel in Your hand and four on the road.</div>
-        <div className="form-container1">
-          <form onSubmit={submitForm} encType='multipart/form-data'>
-            <p id='head-text1'>Register in your Account</p>
-            <input
-              id='name'
-              type="text"
-              placeholder="Name"
-              name="name" required
-              onChange={setFormValues}
-              value={formData.name}
-            /><br></br>
+                        <input
+                            className='contact'
+                            type="text"
+                            placeholder="Contact" required
+                            name='contact'
+                            value={formData.contact} onChange={setFormValues}
+                        />
 
-            <input
-              className='email'
-              type="text"
-              name='email'
-              placeholder="Email"
-              required value={formData.email}
-              onChange={setFormValues}
-            /><br></br>
+                        <input
+                            className='password'
+                            type="text"
+                            placeholder="Password" required
+                            name='password'
+                            value={formData.password} onChange={setFormValues}
+                        />
 
-            <input
-              className='contact'
-              type="text"
-              placeholder="Contact" required
-              name='contact'
-              value={formData.contact} onChange={setFormValues}
-            /><br></br>
+                        <button id="btn" type="submit">Register</button>
 
-            <input
-              className='password'
-              type="text"
-              placeholder="Password" required
-              name='password'
-              value={formData.password} onChange={setFormValues}
-            /><br></br>
-
-            <input
-              className='confirmPassword'
-              type="text"
-              placeholder="confirmPassword" required
-              name='confirmpassword'
-              value={formData.confirmpassword} onChange={setFormValues}
-            />
-
-            <button id="btn" type="submit" onClick={register}>Register</button>
-
-          </form>
-          <Link to='/'><p className='sign-btn1' >Sign In</p></Link>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  )
+    )
 }
-
