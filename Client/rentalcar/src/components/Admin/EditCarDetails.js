@@ -7,6 +7,9 @@ export default function EditCarDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [car, setCar] = useState({});
+
+    const token = localStorage.getItem('token')
+
     const [formData, setFormData] = useState({
       name: "",
       type: "",
@@ -96,8 +99,8 @@ export default function EditCarDetails() {
       navigate('/admin/signIn')
   }
 
-  return (
-    <div>
+  return<div>
+    {token ? <div>
       <header id="logo">
         LOGO
         <span id="logout" onClick={logout}>Logout</span>
@@ -274,6 +277,6 @@ export default function EditCarDetails() {
           </div>
         </form>
       </div>
-    </div>
-  );
+    </div> : <div>Not Authorized</div>}
+  </div>
 }
