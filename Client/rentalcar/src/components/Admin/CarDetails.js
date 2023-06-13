@@ -39,7 +39,7 @@ export default function CarDetails() {
         formData.append("carDetails", carDetails);
         formData.append("Details", Details);
     
-        fetch("http://localhost:8080/cars/postCar", {
+        fetch("http://localhost:8000/cars/postCar", {
           method: 'POST',
           headers: {
             // 'Content-Type': 'application/json',

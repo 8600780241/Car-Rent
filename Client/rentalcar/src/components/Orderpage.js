@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext} from 'react';
+import CarList from './Admin/CarList';
+import NAvLogout from './Nav/NavLogout';
+import FilterPage from './Nav/FilterPage';
+
+
 
 
 const OrderPage = () => {
     const [data, setData] = useState(null);
-
     useEffect(() => {
       fetchData();
     }, []);
@@ -11,7 +15,7 @@ const OrderPage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:8000/booking/booking');
-        if (response.ok) {
+        if (response) {
           const responseData = await response.json();
           const lastBooking = responseData[responseData.length - 1];
           setData(lastBooking);
@@ -24,7 +28,10 @@ const OrderPage = () => {
     };
   
     return (
-      <div id='bookingpage'>
+      <div>
+        <NAvLogout/>
+        <FilterPage/>
+        <div id='bookingpage'>
         {data ? (
           <div>
             <p>
@@ -34,7 +41,8 @@ const OrderPage = () => {
         ) : (
           <p>Loading...</p>
         )}
-
+      </div>
+      <CarList/>
       </div>
     );
 };
