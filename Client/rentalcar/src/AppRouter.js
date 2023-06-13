@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Landing from "./components/Landing";
 import UserRegister from "./components/UserRegister";
 import Booking from "./components/Booking";
@@ -17,9 +17,8 @@ import MyBook from "./components/BookingDetails/MyBook";
 import MyBooks from "./components/BookingDetails/MyBooks";
 
 
-
-export default function AppRouter(){
-     return<div>
+export default function AppRouter() {
+    return <div>
         <Router>
             <Routes>
                 <Route path="/" element={<Landing/>}/>
@@ -41,5 +40,5 @@ export default function AppRouter(){
                 <Route path="/editpaymentdetails/" element={<PaymentEditDetails/>}/>
             </Routes>
         </Router>
-     </div>
+    </div>
 }

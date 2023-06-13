@@ -75,9 +75,91 @@
 // }
 
 import React, { useState } from 'react';
-import { Outlet, Link } from "react-router-dom";
-import image from './backImage.png'
+import { Link } from "react-router-dom";
+import image from './backImage.png';
+import { useNavigate } from 'react-router-dom';
 export default function Landing() {
+
+//     const navigate = useNavigate();
+//     const [formData, setFormData] = useState({
+//         email: "",
+//         password: ""
+//     });
+//     const [errorData, setErrorData] = useState("");
+//     function validate() {
+//         const { email, password } = formData;
+//         if (!email || !password) {
+//             return "All fields are mandatory"
+//         }
+//         if (!(email.includes('@'))) {
+//             return "Email must contain @"
+//         }
+//         if (password.length < 6) {
+//             return "Password must contain atleast 6 letters"
+//         }
+//     }
+// console.log(formData)
+//     function signInHandler(e) {
+//         e.preventDefault();
+//         const error = validate();
+//         if (error) {
+//             setErrorData(error);
+//         } else {
+//             setErrorData("")
+//         }
+//         console.log(formData)
+
+//         fetch("http://localhost:8000/user/loginUser", {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(formData),
+//         })
+//             .then((response) => response.json())
+//             .then((data) => {
+//               localStorage.setItem("token",data.data);
+//          console.log("token",data.data)
+//             navigate('/bookingDetails');
+//             }
+//             )
+
+//     }
+const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        email: "",
+        password: ""
+    })
+    //const [errorMessage, setErrorMessage] = useState("")
+
+   function setForm(e) {
+        setFormData({
+            ...formData,
+            [e.target.name] : e.target.value
+        })
+    }
+
+    // function takeToCreateAdmin(e){
+    //     navigate("/adminRegister")
+    // }
+
+    function signInHandler(e) {
+        e.preventDefault()
+
+      fetch("http://localhost:8080/user/loginUser", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("token", data.data)
+        navigate('/bookingDetails')
+      })
+    
+
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -126,6 +208,7 @@ export default function Landing() {
                 }
             })
 
+
     }
     return (<div className='landing'>
         <div id='logo'>Logo</div>
@@ -142,9 +225,15 @@ export default function Landing() {
         <div className='blockPart1'>
             <p>Sign in your Account</p>
             <form onSubmit={signInHandler}>
+
+         
+                <input type='text' className='input1' name='email' placeholder=' Email' onChange={setForm} value={formData.email} />
+                <input type='password' className='input1' name='password' placeholder='  Password' onChange={setForm} value={formData.password} />
+
                 {errorData && <div>{errorData}</div>}
                 <input type='text' className='input1' placeholder=' Email' onChange={e => setFormData(data => ({ ...formData, email: e.target.value }))} value={formData.email} />
                 <input type='password' className='input1' placeholder='  Password' onChange={e => setFormData(data => ({ ...formData, password: e.target.value }))} value={formData.password} />
+
                 <p id='forgetPassword'>Forget Password?</p>
                 <button className='signInbutton' type='submit'>SIGN IN</button>
                 <Link to="/userRegister"><p id='createAccount'>Create Account</p></Link>
@@ -154,4 +243,4 @@ export default function Landing() {
 
 
     )
-}
+    }}

@@ -1,308 +1,112 @@
-// import React from "react";
-// import './CarDetails.css'
-// import { useState } from "react";
-// import { useNavigate, useParams } from "react-router-dom";
-
-// export default function EditCarDetails() {
-
-//     const {id} = useParams()
-
-//     const [name, setName] = useState('')
-//     const [type, setType] = useState('')
-//     const [model, setModel] = useState('')
-//     const [milage, setMilage] = useState('')
-//     const [image, setImage] = useState('')
-//     const [availableFrom, setAvailableFrom] = useState('')
-//     const [availableTill, setAvailableTill] = useState('')
-//     const [perKm, setPerKm] = useState('')
-//     const [description, setDescription] = useState('')
-//     const [carDetails, setCarDetails] = useState('')
-//     const [Details, setDetails] = useState('')
-
-//     const navigate = useNavigate()
-
-//     const imageupload = e => {
-//         setImage(e.target.files[0])
-//       }
-
-//       function submitForm(e){
-//         e.preventDefault()
-//         const formData = new FormData();
-//         formData.append("name", name);
-//         formData.append("type", type);
-//         formData.append("model", model);
-//         formData.append("milage", milage);
-//         formData.append("image", image);
-//         formData.append("availableFrom", availableFrom);
-//         formData.append("availableTill", availableTill);
-//         formData.append("perKm", perKm);
-//         formData.append("description", description);
-//         formData.append("carDetails", carDetails);
-//         formData.append("Details", Details);
-
-//         console.log(formData.has('image'))
-    
-//         fetch(`http://localhost:8080/cars/postCar/${id}`, {
-//           method: 'POST',
-//           body: formData,
-//         })
-//           .then((response) => response.json())
-//           .then((res) => console.log(res))
-//         //   .then((data) => navigate('/adminCarList'))
-//       }
-
-//     return <div>
-//         <header id="logo">
-//             LOGO
-//             <span id="logout">Logout</span>
-//         </header>
-//         <div>
-//             <form className="body-container" onSubmit={submitForm}>
-//                 <div>
-//                 <h4 className="add-details">Add Car Details</h4>
-//                     <div class="form-group">
-//                         <label for="formGroupExampleInput">Car Name</label>
-//                         <input 
-//                         type="text" 
-//                         class="form-control" 
-//                         id="formGroupExampleInput" 
-//                         placeholder="Name" 
-//                         name="name"
-//                         onChange={(e) => setName(e.target.value)}
-//                         value={name}
-//                         />
-//                     </div>
-
-//                     <div>
-//                     <div className="inline-input">
-//                         <label>Type</label>
-//                         <select className="form-select" aria-label="Default select example" name="type" value={type}
-//                         onChange={(e) => setType(e.target.value)}
-//                         >
-//                             <option selected>Select</option>
-//                             <option value="XUV">XUV</option>
-//                             <option value="UV">UV</option>
-//                             <option value="ALL">ALL</option>
-//                         </select>
-//                     </div>
-
-//                     <div className="inline-input">
-//                         <label>Model</label>
-//                         <select className="form-select" aria-label="Default select example" name="model" value={model}
-//                         onChange={(e) => setModel(e.target.value)}
-//                         >
-//                             <option selected>Select</option>
-//                             <option value="Basic">Basic</option>
-//                             <option value="Mid-range">Mid Range</option>
-//                             <option value="Premium">Premium</option>
-//                         </select>
-//                     </div>
-//                     </div>
-
-//                     <div>
-//                     <div className="inline-input">
-//                         <label>Milage</label>
-//                         <select className="form-select" aria-label="Default select example" name="milage" value={milage}
-//                         onChange={(e) => setMilage(e.target.value)}
-//                         >
-//                             <option selected>Select</option>
-//                             <option value="20Km/L">20Km/L</option>
-//                             <option value="14Km/L">14Km/L</option>
-//                             <option value="15Km/L">15Km/L</option>
-//                             <option value="18Km/L">18Km/L</option>
-//                             <option value="10Km/L">10Km/L</option>
-//                         </select>
-//                     </div>
-
-//                     <div className="form-group inline-input">
-//                         <label for="formGroupExampleInput">Per KM</label>
-//                         <input 
-//                         type="text" 
-//                         class="form-control" 
-//                         id="formGroupExampleInput" 
-//                         placeholder="0000" 
-//                         name="perKm"
-//                         value={perKm}
-//                         onChange={(e) => setPerKm(e.target.value)}
-//                         />
-//                     </div>
-//                     </div>
-
-//                      <div>
-//                      <div className="form-group inline-input">
-//                         <label for="formGroupExampleInput">Available From</label>
-//                         <input 
-//                         type="date" 
-//                         class="form-control" 
-//                         id="formGroupExampleInput" 
-//                         placeholder="0000" 
-//                         name="availableFrom"
-//                         value={availableFrom}
-//                         onChange={(e) => setAvailableFrom(e.target.value)}
-//                         />
-//                     </div>
-
-//                     <div className="form-group inline-input">
-//                         <label for="formGroupExampleInput">Available Till</label>
-//                         <input 
-//                         type="date" 
-//                         class="form-control" 
-//                         id="formGroupExampleInput" 
-//                         placeholder="0000" 
-//                         name="availabeTill"
-//                         value={availableTill}
-//                         onChange={(e) => setAvailableTill(e.target.value)}
-//                         />
-//                     </div>
-//                      </div>
-
-//                     <div className="form-group" id="description">
-//                         <label for="formGroupExampleInput">Description</label>
-//                         <input 
-//                         type="text" 
-//                         class="form-control" 
-//                         id="formGroupExampleInput" 
-//                         placeholder="" 
-//                         name="description"
-//                         value={description}
-//                         onChange={(e) => setDescription(e.target.value)}
-//                         />
-//                     </div>
-//                 </div>
-
-//                 <div className="right-inputs">
-//                     <div className="form-group">
-//                         <label for="formGroupExampleInput">Images</label>
-//                         <input 
-//                         type="file" 
-//                         class="form-control" 
-//                         id="formGroupExampleInput" 
-//                         placeholder="" 
-//                         name="image"
-                      
-//                         onChange={imageupload}
-//                         />
-//                     </div>
-
-//                     <div className="form-group">
-//                         <label for="formGroupExampleInput">Car Details</label>
-//                         <input 
-//                         type="text" 
-//                         class="form-control" 
-//                         id="formGroupExampleInput" 
-//                         placeholder="Car Details" 
-//                         name="carDetails"
-//                         value={carDetails}
-//                         onChange={(e) => setCarDetails(e.target.value)}
-//                         />
-//                     </div>
-
-//                     <div className="form-group" id="details-input">
-//                         <label for="formGroupExampleInput">Details</label>
-//                         <input 
-//                         type="text" 
-//                         class="form-control" 
-//                         id="formGroupExampleInput" 
-//                         placeholder="Details" 
-//                         name="Details"
-//                         value={Details}
-//                         onChange={(e) => setDetails(e.target.value)}
-//                         />
-//                     </div>
-//                 </div>
-//                 <div>
-//                     <button type="submit" className="btns">Add</button>
-//                 </div>
-//             </form>
-//         </div>
-//     </div>
-// }
-
-
 import React, { useEffect } from "react";
 import "./CarDetails.css";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function EditCarDetails() {
-  const { id } = useParams();
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const [car, setCar] = useState({});
 
-  const [name, setName] = useState("");
-  const [type, setType] = useState("");
-  const [model, setModel] = useState("");
-  const [milage, setMilage] = useState("");
-  const [image, setImage] = useState("");
-  const [availableFrom, setAvailableFrom] = useState("");
-  const [availableTill, setAvailableTill] = useState("");
-  const [perKm, setPerKm] = useState("");
-  const [description, setDescription] = useState("");
-  const [carDetails, setCarDetails] = useState("");
-  const [Details, setDetails] = useState("");
+    const token = localStorage.getItem('token')
 
-  const navigate = useNavigate();
-
-  const imageupload = (e) => {
-    setImage(e.target.files[0]);
-  };
-
-  console.log(id)
-  useEffect(() => {
-    fetch(`http://localhost:8080/cars/getCars/${id}`)
-    .then(data => data.json())
-    .then((data) => {
-        setName(data[0].name);
-        setType(data[0].type);
-        setModel(data[0].model);
-        setMilage(data[0].milage);
-        setImage(data[0].image);
-        setAvailableFrom(data[0].availableFrom);
-        setAvailableTill(data[0].availableTill);
-        setPerKm(data[0].perKm);
-        setDescription(data[0].description);
-        setCarDetails(data[0].carDetails);
-        setDetails(data[0].Details);
+    const [formData, setFormData] = useState({
+      name: "",
+      type: "",
+      model: "",
+      mileage: "",
+      availableFrom: "",
+      availableTill: "",
+      perKm: "",
+      description: "",
+      carDetails: "",
+      Details: "",
+      image: null,
+    });
+  
+    useEffect(() => {
+      fetch(`http://localhost:8080/cars/getCars/${id}`)
+        .then((response) => response.json())
+        .then((data) => setCar(data))
+        .catch((error) => console.log(error));
+    }, [id]);
+  
+    useEffect(() => {
+      if (car) {
+          console.log(car)
+        setFormData({
+          name: car.name,
+          type: car.type,
+          model: car.model,
+          mileage: car.mileage,
+          availableFrom: car.availableFrom,
+          availableTill: car.availableTill,
+          perKm: car.perKm,
+          description: car.description,
+          carDetails: car.carDetails,
+          Details: car.Details,
+          image: null,
+        });
+      }
+    }, [car]);
+  
+    const handleInputChange = (event) => {
+      setFormData({
+        ...formData,
+        [event.target.name]: event.target.value,
       });
-  },[])
-
-  console.log(name)
-
-  function submitForm(e) {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("type", type);
-    formData.append("model", model);
-    formData.append("milage", milage);
-    formData.append("image", image);
-    formData.append("availableFrom", availableFrom);
-    formData.append("availableTill", availableTill);
-    formData.append("perKm", perKm);
-    formData.append("description", description);
-    formData.append("carDetails", carDetails);
-    formData.append("Details", Details);
-
-    console.log(formData.has("image"));
-
-    // fetch(`http://localhost:8080/cars/updateCar/${id}`, {
-    //   method: "PUT",
-    //   body: formData,
-    // })
-    //   .then((response) => response.json())
-    //   .then((res) => console.log(res))
-    //   // .then((data) => navigate('/adminCarList'))
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+    };
+  
+    const handleImageChange = (event) => {
+      setFormData({
+        ...formData,
+        image: event.target.files[0],
+      });
+    };
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+  
+      const updatedCar = new FormData();
+      updatedCar.append("name", formData.name);
+      updatedCar.append("type", formData.type);
+      updatedCar.append("model", formData.model);
+      updatedCar.append("mileage", formData.mileage);
+      updatedCar.append("availableFrom", formData.availableFrom);
+      updatedCar.append("availableTill", formData.availableTill);
+      updatedCar.append("perKm", formData.perKm);
+      updatedCar.append("description", formData.description);
+      updatedCar.append("carDetails", formData.carDetails);
+      updatedCar.append("Details", formData.Details);
+      if (formData.image) {
+        updatedCar.append("image", formData.image);
+      }
+  
+      fetch(`http://localhost:8080/cars/updateCar/${id}`, {
+        method: "PUT",
+        body: updatedCar,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          navigate("/adminCarList");
+        })
+        .catch((error) => console.log(error));
+    };
+  
+      function logout(e) {
+      localStorage.removeItem("token")
+      navigate('/admin/signIn')
   }
 
-  return (
-    <div>
+  return<div>
+    {token ? <div>
       <header id="logo">
         LOGO
-        <span id="logout">Logout</span>
+        <span id="logout" onClick={logout}>Logout</span>
       </header>
       <div>
-        <form className="body-container" onSubmit={submitForm}>
+        <form className="body-container" onSubmit={handleSubmit}>
           <div>
             <h4 className="add-details">Add Car Details</h4>
             <div class="form-group">
@@ -313,8 +117,8 @@ export default function EditCarDetails() {
                 id="formGroupExampleInput"
                 placeholder="Name"
                 name="name"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
+                onChange={handleInputChange}
+                value={formData.name}
               />
             </div>
 
@@ -325,8 +129,8 @@ export default function EditCarDetails() {
                   className="form-select"
                   aria-label="Default select example"
                   name="type"
-                  value={type}
-                  onChange={(e) => setType(e.target.value)}
+                  value={formData.type}
+                  onChange={handleInputChange}
                 >
                   <option selected>Select</option>
                   <option value="XUV">XUV</option>
@@ -341,8 +145,8 @@ export default function EditCarDetails() {
                   className="form-select"
                   aria-label="Default select example"
                   name="model"
-                  value={model}
-                  onChange={(e) => setModel(e.target.value)}
+                  value={formData.model}
+                  onChange={handleInputChange}
                 >
                   <option selected>Select</option>
                   <option value="Basic">Basic</option>
@@ -359,8 +163,8 @@ export default function EditCarDetails() {
                   className="form-select"
                   aria-label="Default select example"
                   name="milage"
-                  value={milage}
-                  onChange={(e) => setMilage(e.target.value)}
+                  value={formData.mileage}
+                  onChange={handleInputChange}
                 >
                   <option selected>Select</option>
                   <option value="20Km/L">20Km/L</option>
@@ -379,8 +183,8 @@ export default function EditCarDetails() {
                   id="formGroupExampleInput"
                   placeholder="0000"
                   name="perKm"
-                  value={perKm}
-                  onChange={(e) => setPerKm(e.target.value)}
+                  value={formData.perKm}
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
@@ -394,8 +198,8 @@ export default function EditCarDetails() {
                   id="formGroupExampleInput"
                   placeholder="0000"
                   name="availableFrom"
-                  value={availableFrom}
-                  onChange={(e) => setAvailableFrom(e.target.value)}
+                  value={formData.availableFrom}
+                  onChange={handleInputChange}
                 />
               </div>
 
@@ -407,8 +211,8 @@ export default function EditCarDetails() {
                   id="formGroupExampleInput"
                   placeholder="0000"
                   name="availableTill"
-                  value={availableTill}
-                  onChange={(e) => setAvailableTill(e.target.value)}
+                  value={formData.availableTill}
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
@@ -421,8 +225,8 @@ export default function EditCarDetails() {
                 id="formGroupExampleInput"
                 placeholder=""
                 name="description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                value={formData.description}
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -436,7 +240,7 @@ export default function EditCarDetails() {
                 id="formGroupExampleInput"
                 placeholder=""
                 name="image"
-                onChange={imageupload}
+                onChange={handleImageChange}
               />
             </div>
 
@@ -448,8 +252,8 @@ export default function EditCarDetails() {
                 id="formGroupExampleInput"
                 placeholder="Car Details"
                 name="carDetails"
-                value={carDetails}
-                onChange={(e) => setCarDetails(e.target.value)}
+                value={formData.carDetails}
+                onChange={handleInputChange}
               />
             </div>
 
@@ -461,8 +265,8 @@ export default function EditCarDetails() {
                 id="formGroupExampleInput"
                 placeholder="Details"
                 name="Details"
-                value={Details}
-                onChange={(e) => setDetails(e.target.value)}
+                value={formData.Details}
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -473,6 +277,6 @@ export default function EditCarDetails() {
           </div>
         </form>
       </div>
-    </div>
-  );
+    </div> : <div>Not Authorized</div>}
+  </div>
 }

@@ -9,14 +9,29 @@ export default function CarList() {
 
     const [posts, setPosts] = useState([]);
 
+    // useEffect(() => {
+    //     fetch("http://localhost:8080/cars/getCars")
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setPosts(data)
+    //         })
+    // }, [])
+
+    const token = localStorage.getItem('token')
+
     useEffect(() => {
-        fetch("http://localhost:8080/cars/getCars")
-            .then(res => res.json())
-            .then(data => {
-                setPosts(data)
-            })
+        fetch("http://localhost:8080/cars/getCars", {
+            method: 'GET',
+            headers: {
+              'Authorization': token,
+            }
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+           setPosts(data)
+         })
     }, [])
-    console.log(posts)
 
     const navigate = useNavigate()
 
@@ -29,7 +44,8 @@ export default function CarList() {
         navigate('/admin/signIn')
     }
 
-    return <div className="carList">
+    return<div>
+        {token ? <div className="carList">
         <header className="carList-header">
             <span id="logo">LOGO</span>
             <span id="logout" onClick={logout}>Logout</span>
@@ -46,6 +62,7 @@ export default function CarList() {
                 })}
             </div>
         </div>
+    </div> : <div>Not Authorised</div>}
     </div>
   ;
 };
