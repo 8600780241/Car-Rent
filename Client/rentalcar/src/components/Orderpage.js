@@ -2,6 +2,9 @@ import React, { useEffect, useState,useContext} from 'react';
 import CarList from './Admin/CarList';
 import NAvLogout from './Nav/NavLogout';
 import FilterPage from './Nav/FilterPage';
+import UserCarList from './UserCarList'
+import BookingDetails from './BookingDetails/bookingDetails';
+import { Link } from 'react-router-dom';
 
 
 
@@ -31,18 +34,29 @@ const OrderPage = () => {
       <div>
         <NAvLogout/>
         <FilterPage/>
-        <div id='bookingpage'>
-        {data ? (
-          <div>
-            <p>
-              Origin: {data.origin}  ---   Destination: {data.destination}          Start Date: {data.startDate}   --    End Date: {data.endDate}
-            </p>
-          </div>
-        ) : (
-          <p>Loading...</p>
-        )}
+      <div className='container'>
+        <form id="form" action="">
+
+          <li className='Origin' 
+             >Origin :{data?.origin}</li>
+
+          <i className="fa-solid fa-arrow-right  arrow" style={{ color: "#4279cd" }}></i>
+
+          <li  className="Origin"
+            >Destination :{data?.destination}</li>
+
+          <li type="date"  className="Origin" 
+             >Starting from :{data?.startDate}</li>
+
+          <li type="date"  className="Origin"
+            >Ending :{data?.endDate}</li>
+
+          
+          <Link to="/booking" id="modify" >Modify</Link>
+        </form>
+    
       </div>
-      <CarList/>
+      <UserCarList/>
       </div>
     );
 };

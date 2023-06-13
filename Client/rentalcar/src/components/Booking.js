@@ -7,7 +7,9 @@ export default function Booking() {
         origin: "",
         destination: "",
         startDate: "",
-        endDate: ""
+        endDate: "",
+        distance:"",
+        MapImg:""
       });
       
 
@@ -21,12 +23,14 @@ export default function Booking() {
 
   const save = (e) => {
     e.preventDefault();
-    const { origin, destination, startDate, endDate } = inputdata;
+    const { origin, destination, startDate, endDate ,distance,MapImg} = inputdata;
     const data = {
         origin,
         destination,
         startDate,
-        endDate
+        endDate,
+        distance,
+        MapImg
       };
     
       try {

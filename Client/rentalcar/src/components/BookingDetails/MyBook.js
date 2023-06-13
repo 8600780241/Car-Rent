@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
-import NavLogout from "./NavLogout";
-import { useNavigate,useLocation } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import React from "react";
+import { useLocation,useNavigate } from "react-router-dom";
+import { useEffect ,useState} from "react";
+import NavLogout from "../Nav/NavLogout";
 import "../Nav/MyBooking.css"
-
-export default function MyBooking() {
-  const [BookData, setBookData] = useState([]);
+export default function MyBook(){
+    const [BookData, setBookData] = useState([]);
   const location = useLocation();
-  const {Object}  = location.state;
+  const Object  = location.state;
   const userId=Object?.userId
   console.log(Object)
 const navigate=useNavigate()
 function editHandle(d){
- navigate("/editpaymentdetails/", {state:{d,Object}})
+ navigate("/editpaymentdetails/", {state:{d}})
 }
 
 
@@ -49,7 +48,7 @@ function editHandle(d){
 
   return (
     <div>
-      <NavLogout myObject={Object}/>
+      {/* <NavLogout myObject={Object}/> */}
       {/* Render the bookData in your component */}
       {BookData.map((d, m) => {
                 return <div key={m}>
