@@ -19,6 +19,7 @@ export default function CarDetails() {
     const [Details, setDetails] = useState('')
 
     const navigate = useNavigate()
+    const token = localStorage.getItem('token')
 
     const imageupload = e => {
         setImage(e.target.files[0])
@@ -38,8 +39,9 @@ export default function CarDetails() {
         formData.append("description", description);
         formData.append("carDetails", carDetails);
         formData.append("Details", Details);
+        
     
-        fetch("http://localhost:8000/cars/postCar", {
+        fetch("http://localhost:8080/cars/postCar", {
           method: 'POST',
           headers: {
             // 'Content-Type': 'application/json',
@@ -55,7 +57,8 @@ export default function CarDetails() {
         navigate('/admin/signIn')
     }
 
-    return <div>
+    return<div>
+        {token ? <div>
         <header id="logo">
             LOGO
             <span id="logout" onClick={logout}>Logout</span>
@@ -219,5 +222,6 @@ export default function CarDetails() {
                 </div>
             </form>
         </div>
+    </div> : <div>Not Authorized</div>}
     </div>
 }
