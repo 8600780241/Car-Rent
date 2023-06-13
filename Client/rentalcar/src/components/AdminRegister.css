@@ -1,6 +1,9 @@
 .form-container{
-    height: 700px;
+
  
+    height: 500px;
+    margin-top: -50px;
+
 }
 
 .form-container input{
@@ -14,4 +17,26 @@
 
 .quotes{
     color: #ffff;
+}
+
+#first{
+    position: absolute;
+}
+
+#forma{
+    position: relative;
+    margin-top: -370px;
+    height: 500px;
+}
+
+#quotes{
+    position: relative;
+    margin-left: 200px;
+    margin-top: 200px;
+    font-size: 2rem;
+}
+
+#admin-nav{
+    color: #ffff;
+    text-decoration: underline;
 }

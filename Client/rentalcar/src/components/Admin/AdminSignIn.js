@@ -11,6 +11,7 @@ export default function AdminSignIn() {
         email: "",
         password: ""
     })
+    const [errorMessage, setErrorMessage] = useState("")
 
    function setForm(e) {
         setFormData({
@@ -19,10 +20,14 @@ export default function AdminSignIn() {
         })
     }
 
+    function takeToCreateAdmin(e){
+        navigate("/adminRegister")
+    }
+
     function submitForm(e) {
         e.preventDefault()
 
-        fetch("http://localhost:8080/admin/login", {
+      fetch("http://localhost:8080/admin/login", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,6 +39,10 @@ export default function AdminSignIn() {
         localStorage.setItem("token", data.data)
         navigate('/adminCarList')
       })
+      .catch(err => {
+        setErrorMessage(err.message)
+      })
+      console.log(errorMessage)
     }
 
     return <div>
@@ -61,7 +70,7 @@ export default function AdminSignIn() {
                     <p id='text'>Forget password?</p>
                     <button id='btn' type='submit'>SIGN IN</button>
                 </form>
-                <p id='create'>Create Account</p>
+                <p id='create' onClick={takeToCreateAdmin}>Create Account</p>
             </div>
             <div className='quote'>
                 <p> All you needed was a  wheel</p>
