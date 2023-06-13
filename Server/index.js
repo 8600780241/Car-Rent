@@ -24,7 +24,7 @@ app.use('/user', router);
 app.use('/admin', adminRouter)
 app.use('/cars', carsRouter)
 app.use('/booking', bookingRouter)
-app.use('./order',orderRouter)
+app.use('/order',orderRouter)
 
 app.listen(PORT,()=>{
     console.log(`Server listening...,${PORT}`)

@@ -1,348 +1,192 @@
-nav {
-    width: 1480px;
-    height: 90px;
-    border: 1px solid black;
-}
-
-nav>#fnav {
-    text-align: left;
-    font: normal normal bold 24px/29px Helvetica Neue;
-    letter-spacing: 2.4px;
-    color: #007FED;
-    margin-top: 30px;
-    margin-left: 30px;
-}
-
-nav>#snav {
-    margin-left: 1050px;
+.box-of-payment{
+    width: 100%;
+    height: 100vh;
+    padding-top: 30px; 
+    color: black;
     position: relative;
-    bottom: 25px;
-    font: normal normal medium 20px/25px Helvetica Neue;
-    color: #707070
-}
-
-nav>#tnav {
-    margin-left: 1250px;
-    position: relative;
-    bottom: 50px;
-    font: normal normal medium 25px/25px Helvetica Neue;
-    color: #707070
-}
-
-.main {
+    
+   }
+   .mai-hoon-map{
+       position: absolute;
+       right: 0px;
+   }
+   #map-of-the-payment-page-we-change-that-position{
+   position: absolute;
+   left:700px;
+   top:370px;
+   z-index: 3;
+   }
+   
+   .contanermaginc-lum{
+    position: absolute;
+    width: 100%;
+    height: 90%;
     display: flex;
-    flex-direction: row;
-}
-
-.first {
-    height: 580px;
-    width: 770px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #CCCCCC;
-    border-radius: 10px;
-    margin-top: 60px;
-    margin-left: 100px;
-}
-
-#heading1 {
-    font: normal normal medium 28px/34px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #1E1E1E;
-    margin-left: 20px;
+    justify-content: space-between;
+    color:black;
+    padding: 50px;
+    border-radius: 5px;
+    border-radius: 30px;
+   }
+   
+   .cardetail-app{
+     
+       width: 68%;
+       height: 100%;
+       display: grid;
+      
+       color: rgb(16, 12, 12);
+       border-radius: 30px;
+       box-shadow: 3px 3px 10px black;
+       
+   }
+   
+   .upper{
+      border-bottom: 1px solid;
+      padding: 15px;
+      height: 100%;
+      background-color: rgb(5, 5, 60);
+      background-image: linear-gradient(rgb(11, 11, 13),rgb(58, 58, 146));
+      color:white;
+      border-radius: 30px 30px 0px 0px ;
+      
+   }
+   
+   .comp{
+       margin-top: 30px;
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr;
+       height: 100%;
+       /* background-color: red; */
+   }
+   
+   .image-of-car-in-rental-payment{
+     height: 150px;
+     margin-top: -50px;
+   }
+   
+   .img{
+    height: 100%;
+   }
+   
+   .midddle{
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr;
+       border-bottom: 1px solid;
+       padding: 15px;
+       color: black;
+       height: 100%;
+       background-color: rgb(58, 58, 146);
+       
+       
+      color:white;
+   }
+   
+   .image-of-hte-map{
+       width: 17vw;
+       height: 15vh;
+   }
+   
+   .map-of-doom{
+       width: 17vw;
+       height: 15vh;
+   }
+   
+   .lower{
+       height: 100%;
+       padding: 15px;
+       background-color: rgb(58, 58, 146);
+       background-color: rgb(5, 5, 60);
+       background-image: linear-gradient(rgb(58, 58, 146),rgb(17, 17, 18));
+      border-radius: 0px 0px 30px 30px ;
+      color:white;
+   }
+   
+   .boomking-cont-dgg{
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr;
+   }
+   
+   
+   .cancel-button-of-page{
     margin-top: 30px;
-}
-
-.carn {
-    height: 100px;
-    width: 700px;
-    border-bottom: 1px solid black;
-    margin-left: 35px;
-    margin-top: 40px;
-}
-
-#carname {
-    margin-left: 150px;
-    position: relative;
-    bottom: 25px;
-}
-
-#set {
-    position: relative;
-    bottom: 15px;
-}
-
-#carNu {
-    font: normal normal medium 32px/39px Helvetica Neue;
-    letter-spacing: 2.56px;
-    color: #1D1D1D;
-    opacity: 0.5;
-    position: relative;
-    left: 150px;
-    bottom: 22px;
-}
-
-.image {
-    width: 250px;
-    height: 100px;
-    position: relative;
-    left: 440px;
-    bottom: 130px;
-}
-
-.carD {
-    height: 130px;
-    width: 700px;
-    border-bottom: 1px solid black;
-    margin-left: 35px;
-    margin-top: 40px;
-}
-
-.f {
-    font: normal normal normal 19px/27px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #1D1D1D;
-    opacity: 0.6;
-    margin-left: 5.5px;
-}
-
-.s {
-    font: normal normal normal 21px/29px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #202020;
-    opacity: 0.84;
-    position: relative;
-    left: 150px;
-    bottom: 27px;
-}
-
-.f1 {
-    font: normal normal normal 19px/27px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #1D1D1D;
-    opacity: 0.6;
-    margin-left: 5.5px;
-    position: relative;
-    bottom: 40px;
-}
-
-.s1 {
-    font: normal normal normal 21px/29px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #202020;
-    opacity: 0.84;
-    position: relative;
-    position: relative;
-    left: 150px;
-    bottom: 25px;
-}
-
-.f2 {
-    font: normal normal normal 19px/27px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #1D1D1D;
-    opacity: 0.6;
-    margin-left: 5.5px;
-    position: relative;
-    bottom: 80px;
-}
-
-.s2 {
-    font: normal normal normal 21px/29px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #202020;
-    opacity: 0.84;
-    position: relative;
-    position: relative;
-    left: 150px;
-    bottom: 28px;
-}
-
-.f3 {
-    font: normal normal normal 19px/27px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #1D1D1D;
-    opacity: 0.6;
-    margin-left: 5.5px;
-    position: relative;
-    bottom: 125px;
-}
-
-.s3 {
-    font: normal normal normal 21px/29px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #202020;
-    opacity: 0.84;
-    position: relative;
-    left: 150px;
-    bottom: 28px;
-}
-
-.carB {
-    height: 90px;
-    width: 700px;
-    border-bottom: 1px solid black;
-    margin-left: 35px;
-    margin-top: 40px;
-}
-
-.f4 {
-    font: normal normal normal 19px/27px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #1D1D1D;
-    opacity: 0.6;
-    margin-left: 5.5px;
-    position: relative;
-    bottom: 25px;
-
-}
-
-.s4 {
-    font: normal normal normal 21px/29px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #202020;
-    opacity: 0.84;
-    position: relative;
-    left: 150px;
-    bottom: 30px;
-}
-
-.f5 {
-    font: normal normal normal 19px/27px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #1D1D1D;
-    opacity: 0.6;
-    margin-left: 5.5px;
-    position: relative;
-    bottom: 65px;
-}
-
-.s5 {
-    font: normal normal normal 21px/29px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #202020;
-    opacity: 0.84;
-    position: relative;
-    left: 150px;
-    bottom: 29px;
-}
-
-.f6 {
-    font: normal normal normal 19px/27px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #1D1D1D;
-    opacity: 0.6;
-    margin-left: 5.5px;
-    position: relative;
-    bottom: 105px;
-}
-
-.s6 {
-    font: normal normal normal 21px/29px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #202020;
-    opacity: 0.84;
-    position: relative;
-    left: 150px;
-    bottom: 27px;
-}
-
-.cancle-btn {
-    font: normal normal medium 25px/25px Helvetica Neue;
-    width: 90px;
-    height: 35px;
-    color: #007FED;
-    background-color: white;
-    border: 2px solid #007FED;
-    border-radius: 34px;
-    margin-top: 25px;
-    margin-left: 40px;
-}
-
-.second {
-    height: 580px;
-    width: 420px;
-    border: 1px solid #CCCCCC;
-    border-radius: 10px;
-    margin-top: 60px;
-    margin-left: 50px;
-}
-
-.paymentDetails {
-    height: 120px;
-    width: 350px;
-    border-bottom: 1px solid black;
-    margin-left: 35px;
-    margin-top: 40px;
-}
-
-.b1 {
-    color: #1D1D1D;
-    ;
-    position: relative;
-    left: 250px;
-    bottom: 22px;
-}
-
-.a2 {
-    position: relative;
-    bottom: 30px;
-}
-
-.b2 {
-    position: relative;
-    bottom: 20px;
-    left: 250px;
-}
-
-.a3 {
-    position: relative;
-    bottom: 55px;
-    color: gray;
-}
-
-.b3 {
-    position: relative;
-    bottom: 25px;
-    left: 250px
-}
-
-.total>h6 {
-    color: grey;
-    margin-top: 30px;
-    margin-left: 40px;
-}
-
-.total>.rs {
-    font: normal normal bold 20px/34px Helvetica Neue;
-    letter-spacing: 1.4px;
-    color: #32C348;
-    position: relative;
-    left: 240px;
-    bottom: 55px;
-}
-
-.statement {
-    font: normal normal normal 13px/18px Helvetica Neue;
-    letter-spacing: 0px;
-    color: #A3A3A3;
-    margin-left: 55px;
-    position: relative;
-    bottom: 22px;
-}
-
-#check {
-    position: relative;
-    bottom: 44px;
-    right: 50px;
-}
-
-.proceed {
-    height: 45px;
-    width: 280px;
-    background: #007FED 0% 0% no-repeat padding-box;
-    border: 1px solid #007FED;
-    border-radius: 34px;
-    color: #FFFFFF;
-    margin-top: 40px;
-    margin-left: 70px;
-}
+       
+   }
+   
+   .cncl-brfd{
+       width: 10vw;
+       height: 5vh;
+       
+   }
+   
+   .payment{
+       border: 1px solid;
+       width: 30%;
+       height: auto;
+       padding: 30px;
+       padding-bottom: 40px;
+       color: black;
+       border-radius: 30px;
+       background-color: rgb(5, 5, 60);
+       background-image: linear-gradient(rgb(17, 17, 18),rgb(58, 58, 146));
+       color:white;
+       box-shadow: 3px 3px 10px black;
+   }
+   
+   .order-details{
+       display: grid;
+       grid-template-columns: 5fr 5fr;
+       height: 50%;
+       padding-bottom: 30px;
+       border-bottom: 1px solid;
+       padding-top: 30px;
+   }
+   
+   .parameter{
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       gap: 30px;
+   }
+   
+   .data-gogog{
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       gap: 30px;
+       margin-left: 20px;
+   }
+   
+   .paylower{
+       padding-top: 40px;
+       display: flex;
+       margin-bottom: 40px;
+   }
+   
+   .payment-button{
+       width: 24vw;
+       background-color: rgb(65, 217, 65);
+       font-size: large;
+       font-weight: bold;
+       color: rgb(227, 233, 239);
+   }
+   .name-of-the-page-payment-of-the-car{
+       font-size:20px;
+       font-weight: bold;
+   }
+   .ans-of-the-file-payment-in-data-of-file{
+       font-size: large;
+       font-weight: bold;
+   }
+   .ans-of-the-file-payment-in-data-of-file-total{
+       font-size: large;
+       font-weight: bold;
+       color: rgb(145, 231, 145);
+   }
+   .cncl-brfd{
+       background-color: red;
+       font-size: large;
+       font-weight: bold;
+       color: aliceblue;
+       height: 40px;
+   }
