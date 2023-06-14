@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import background from '../images/self-drive-norwa-car-people.png'
-import '../components/AdminRegister.css'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import './Landing.css'
 
 export default function Landing() {
 
@@ -51,7 +51,7 @@ export default function Landing() {
         </header>
         <div className='landing' style={{ backgroundImage: `url(${background})` }}>
             <div className='form-container'>
-                <p>Sign in your Account</p>
+                <p id="head">Sign in your Account</p>
                 <form onSubmit={submitForm}>
                     <input
                         type='text'
@@ -79,13 +79,17 @@ export default function Landing() {
             </div>
             <div className='nav'>
                 <div>
-                <Link to={'/'}>
+                <Link to={'/'} style={{ textDecoration: "none" }}>
+                    <div className='btn-text'>
                     User Sign In
+                    </div>
                 </Link>
                 </div>
                 <div>
-                <Link to={'/admin/signIn'}>
+                <Link to={'/admin/signIn'} style={{ textDecoration: "none" }}>
+                    <div className='btn-text btx'>
                     Admin Sign In
+                    </div>
                 </Link>
                 </div>
                 

@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom';
 import React, { useState} from 'react';
 import NAvLogout from './Nav/NavLogout';
@@ -12,6 +11,7 @@ export default function Booking() {
         MapImg:""
       });
       
+  const token = localStorage.getItem('token')
 
   const navigate = useNavigate();
 
@@ -53,7 +53,8 @@ export default function Booking() {
   }
 
   return (
-    <div id='maincontainer'>
+    <div>
+      {token ? <div id='maincontainer'>
       <NAvLogout/>
       <div id="parent" >
         <h1 id="welcome">W E L C O M E !!</h1>
@@ -100,6 +101,7 @@ export default function Booking() {
           </form>
         </div>
       </div>
+    </div> : <div>Not Authorized</div>}
     </div>
-  );
+    )
 }

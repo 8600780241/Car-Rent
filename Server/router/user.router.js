@@ -8,7 +8,7 @@ const userRouter = express.Router();
 
 userRouter.post("/register", (req, res) => {
     const userInfo = req.body
-
+  
     bcrypt.hash(userInfo.password, 10).then((encryptedPassword) => {
         const User = new user({
             name : userInfo.name,
@@ -37,7 +37,6 @@ userRouter.post("/register", (req, res) => {
 
 userRouter.post('/login',(req,res) => {
     const userInfo = req.body
-    console.log(userInfo)
     user.findOne({email : userInfo.email}).then(userr => {
         if(userr){
             return bcrypt.compare(userInfo.password,userr.password).then(authStatus => {
@@ -50,7 +49,6 @@ userRouter.post('/login',(req,res) => {
                     {
                         expiresIn : "1h"
                     },(err,token) => {
-                        console.log(token)
                         if(err){
                            return res.json({
                                 message : "Authentication failed",

@@ -38,10 +38,11 @@ carsRouter.get("/getCars/:id", async (req, res) => {
   }
 });
 
-carsRouter.post("/postCar", upload.single('image'), (req, res) => {
+carsRouter.post("/postCar", auth, upload.single('image'), (req, res) => {
   const car = new carDetails({
     ...req.body,
       image: req.file.originalname,
+      AdminId : req.AdminId
   });
 
   car.save()

@@ -61,7 +61,7 @@ export default function AdminSignIn() {
                         value={formData.email}
                     />
                     <input
-                        type='text'
+                        type='password'
                         placeholder='Password'
                         name='password'
                         onChange={setForm}
@@ -78,7 +78,7 @@ export default function AdminSignIn() {
                 <p>the road.</p>
             </div>
             <div className='nav'>
-                <Link to={'/'}>
+                <Link to={'/'} style={{ textDecoration: "none" }}>
                     User Sign In
                 </Link>
             </div>

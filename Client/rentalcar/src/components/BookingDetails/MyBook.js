@@ -3,6 +3,8 @@ import { useLocation,useNavigate } from "react-router-dom";
 import { useEffect ,useState} from "react";
 import NavLogout from "../Nav/NavLogout";
 import "../Nav/MyBooking.css"
+import moment from "moment";
+
 export default function MyBook(){
     const [BookData, setBookData] = useState([]);
   const location = useLocation();
@@ -13,9 +15,6 @@ const navigate=useNavigate()
 function editHandle(d){
  navigate("/editpaymentdetails/", {state:{d}})
 }
-
-
-
   useEffect(() => {
     
       fetch(`http://localhost:8080/order/${userId}`)
@@ -69,8 +68,8 @@ function editHandle(d){
                             <div className="smallerDiv">
                                 <div><span id="name-of-the-booking-hading-page">origin </span>:<span>{d.origin}</span></div>
                                 <div><span id="name-of-the-booking-hading-page">Destination </span>: <span>{d.destination}</span></div>
-                                <div> <span id="name-of-the-booking-hading-page">Start Date</span> :<span>{d.startDate}</span></div>
-                                <div><span id="name-of-the-booking-hading-page">Start Date </span>:<span>{d.endDate}</span></div>
+                                <div> <span id="name-of-the-booking-hading-page">Start Date</span> :<span>{moment(`${d.startDate}`, "DD-MM-YYYY").format("MMM DD YYYY")}</span></div>
+                                <div><span id="name-of-the-booking-hading-page">Start Date </span>:<span>{moment(`${d.endDate}`, "DD-MM-YYYY").format("MMM DD YYYY")}</span></div>
                             </div>
                             <div className="smallerDiv">
                             <img src={d.MapImg} alt="map is unable to render" id="Abcdefghijklmn"/>
