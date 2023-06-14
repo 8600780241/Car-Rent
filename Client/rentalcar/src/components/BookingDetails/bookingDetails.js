@@ -26,7 +26,6 @@ export default function BookingDetails({props}) {
         const response = await fetch('http://localhost:8080/booking/booking');
         if (response) {
           const responseData = await response.json();
-          console.log(responseData)
           const lastBooking = responseData[responseData.length - 1];
          setHeaderData(lastBooking)
         } else {
@@ -87,7 +86,7 @@ if(!isNaN(data?.distance)){
     <div>
       {token ?  <>
       <div className='main-conatainer'>
-        <NavLogout myObject={Object} />
+        <NavLogout />
         <div className='box-of-payment'>
           <div className='contanermaginc-lum'>
             <div className='cardetail-app'>
@@ -136,7 +135,7 @@ if(!isNaN(data?.distance)){
                 </div>
                 </div>
                 <div className='cancel-button-of-page'>
-                  <button className='cncl-brfd' onClick={()=>navigate("/orderpage")}>Cancel</button>
+                  <button className='cncl-brfd'>Cancel</button>
                 </div>
               </div>
             </div>
