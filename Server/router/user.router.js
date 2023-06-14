@@ -8,7 +8,7 @@ const userRouter = express.Router();
 
 userRouter.post("/register", (req, res) => {
     const userInfo = req.body
-
+  
     bcrypt.hash(userInfo.password, 10).then((encryptedPassword) => {
         const User = new user({
             name : userInfo.name,

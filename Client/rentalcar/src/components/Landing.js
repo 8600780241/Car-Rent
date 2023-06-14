@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import background from '../images/self-drive-norwa-car-people.png'
-import '../components/AdminRegister.css'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
