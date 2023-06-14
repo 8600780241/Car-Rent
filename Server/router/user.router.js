@@ -45,7 +45,7 @@ userRouter.post('/login',(req,res) => {
                         email : userr.email,
                         id : userr._id
                     },
-                    "10X_ACADEMY",
+                    `${process.env.SECRET_KEY}`,
                     {
                         expiresIn : "1h"
                     },(err,token) => {

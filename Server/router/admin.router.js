@@ -43,7 +43,7 @@ adminRouter.post('/login',(req,res) => {
                         email : adminn.email,
                         id : adminn._id
                     },
-                    "10X_ACADEMY",
+                    `${process.env.SECRET_KEY}`,
                     {
                         expiresIn : "1h"
                     },(err,token) => {
