@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function CarDetails() {
 
-    
     const [name, setName] = useState('')
     const [type, setType] = useState('')
     const [model, setModel] = useState('')

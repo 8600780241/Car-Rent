@@ -44,7 +44,7 @@ export default function PaymentEditDetails() {
             <label>Car Name</label>
 
             <span id="name-of-the-car-edit-payment">{name}</span><br></br>
-            <img src={`http://localhost:8080/cars/getCars/${image}`} id="image-edit-payment-details-in-data"></img>
+            <img src={`http://localhost:8080/cars/images/${image}`} id="image-edit-payment-details-in-data"></img>
             <label>Car Number</label>
             <span className="name-of-the-span-css-for-payment-details" id="type-of-the-car-in-payment">Ayx123</span><br />
           </div>
@@ -71,7 +71,8 @@ export default function PaymentEditDetails() {
           <label >Booking Time</label>
           <span className="name-of-the-span-css-for-payment-details">{time}</span><br></br>
           <hr></hr>
-          <button id="btn-cancle-payment-details" onClick={() => navigate("/mybooking")}>Cancle</button>
+          {/* <button id="btn-cancle-payment-details" onClick={() => navigate("/mybooking", { state: Object })}>Cancle</button> */}
+          <button id="btn-cancle-payment-details">Cancle</button>
         </div>
         <div id="form-rightside-edit-part-in-payment">
           <label>pricekm</label>

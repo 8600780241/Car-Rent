@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken")
 
 
 module.exports = (req, res, next) => {
-    console.log("Auth middleware reached")
     try{
         if(!req.headers.authorization){
             res.send("Not Found")

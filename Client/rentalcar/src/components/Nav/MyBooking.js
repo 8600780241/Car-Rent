@@ -37,7 +37,7 @@ function editHandle(d){
 
         method: 'DELETE',
         headers:{
-            "authorization":JSON.parse(localStorage.getItem("token-user"))
+            "authorization":JSON.parse(localStorage.getItem("token"))
         },
     }).then(res => {
         if(res.status === 200){

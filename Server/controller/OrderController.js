@@ -27,9 +27,6 @@ const getOrdersCtrl = async (req, res) => {
     });
 };
 
-
-
-
 const deleteOrderCtrl = async (req, res) => {
   try {
     const _id = req.params.id;
