@@ -1,16 +1,17 @@
-import React, { useEffect, useState,useContext} from 'react';
-import CarList from './Admin/CarList';
+import React, { useEffect, useState} from 'react';
 import NAvLogout from './Nav/NavLogout';
 import FilterPage from './Nav/FilterPage';
 import UserCarList from './UserCarList'
-import BookingDetails from './BookingDetails/bookingDetails';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const OrderPage = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
       fetchData();
     }, []);
+
+    const token = localStorage.getItem('token')
   
     const fetchData = async () => {
       try {
@@ -29,24 +30,25 @@ const OrderPage = () => {
   
     return (
       <div>
+        {token ? <div>
         <NAvLogout/>
         <FilterPage/>
       <div className='container'>
         <form id="form" action="">
 
           <li className='Origin' 
-             >Origin :{data?.origin}</li>
+             >Origin : {data?.origin}</li>
 
           <i className="fa-solid fa-arrow-right  arrow" style={{ color: "#4279cd" }}></i>
 
           <li  className="Origin"
-            >Destination :{data?.destination}</li>
+            >Destination : {data?.destination}</li>
 
           <li type="date"  className="Origin" 
-             >Starting from :{data?.startDate}</li>
+             >Starting from : {moment(`${data?.startDate}`, "DD-MM-YYYY").format("MMM DD YYYY")}</li>
 
           <li type="date"  className="Origin"
-            >Ending :{data?.endDate}</li>
+            >Ending : {moment(`${data?.endDate}`, "DD-MM-YYYY").format("MMM DD YYYY")}</li>
 
           
           <Link to="/booking" id="modify" >Modify</Link>
@@ -54,6 +56,7 @@ const OrderPage = () => {
     
       </div>
       <UserCarList/>
+      </div> : <div>Not Authorized</div>}
       </div>
     );
 };

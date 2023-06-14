@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import image from './backImage.png'
 import './AdminRegister.css';
+import './UserRegister.css'
 import { Link } from 'react-router-dom';
 
 export default function UserRegister() {
@@ -45,13 +46,6 @@ export default function UserRegister() {
                     <p> All you needed was a  wheel</p>
                     <p>in Your hand and four on</p>
                     <p>the road.</p>
-                    <div>
-                        <Link to="/admin/signIn">
-                            <div id='admin-nav'>
-                            Admin Sign In
-                            </div>
-                        </Link>
-                    </div>
                 </div>
                 <div className="form-container" id='forma'>
                     <form onSubmit={submitForm} encType='multipart/form-data'>
@@ -91,6 +85,13 @@ export default function UserRegister() {
                         />
 
                         <button id="btn" type="submit">Register</button>
+                        <div className='sign'>
+                        <Link to="/admin/signIn">
+                            <div id='admin-nav'>
+                            Sign In
+                            </div>
+                        </Link>
+                    </div>
 
                     </form>
                 </div>

@@ -13,9 +13,13 @@ import "../Nav/filterpage.css"
                    
             );
         };
+
+
+        let token = localStorage.getItem('token')
     
      return (
-        <div id="form">
+      <div>
+         {token ?  <div id="form">
            <div id="button">
               
               <select className="select" onChange={(e) => setQuerry(e.target.value)}>
@@ -46,6 +50,7 @@ import "../Nav/filterpage.css"
            <div>
            
            </div>
-        </div>
+        </div> : <div>Not Authorized</div>}
+      </div>
       )
   }

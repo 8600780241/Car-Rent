@@ -1,5 +1,4 @@
 #navbar{
-
     display: flex;
     position: relative;
     height: 50px;
@@ -7,14 +6,21 @@
     padding-top:5px;
     box-shadow: 5px;
     background-color: antiquewhite;
-    
 }
+
 #navbooking{
+    background-color: #fff;
+width: 150px;
 position: relative;
 left: 75%;
 color: none;
 }
 #navlogout{
     position: relative;
+    background-color: #fff;
 left: 80%;
+}
+
+#navlogo{
+    margin-left: 10px;
 }

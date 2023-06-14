@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import NavLogout from "./NavLogout";
 import { useNavigate,useLocation } from 'react-router-dom';
-import { Link } from "react-router-dom";
 import "../Nav/MyBooking.css"
+import moment from "moment";
 
 export default function MyBooking() {
   const [BookData, setBookData] = useState([]);
@@ -10,12 +10,14 @@ export default function MyBooking() {
   const {Object}  = location.state;
   const userId=Object?.userId
   console.log(Object)
-const navigate=useNavigate()
+
+  const navigate=useNavigate()
+
+  const token = localStorage.getItem('token')
+
 function editHandle(d){
  navigate("/editpaymentdetails/", {state:{d,Object}})
 }
-
-
 
   useEffect(() => {
     
@@ -27,7 +29,7 @@ function editHandle(d){
           // Handle the error case
         });
     
-  }, []);
+  }, [userId]);
   
   function deleteCarData(id){
 
@@ -49,6 +51,7 @@ function editHandle(d){
 
   return (
     <div>
+        {token ? <div>
       <NavLogout myObject={Object}/>
       {/* Render the bookData in your component */}
       {BookData.map((d, m) => {
@@ -57,7 +60,7 @@ function editHandle(d){
                         <p>My Booking </p>
                         <div className="bookings">
                             <div id="myimg" className="smallerDiv" >
-                                <img src={`http://localhost:8080/cars/images/${d.image}`} width="250px" />
+                                <img src={`http://localhost:8080/cars/images/${d.image}`} width="250px" alt="car"/>
                             </div>
 
                             <div id="toyota" className="smallerDiv">
@@ -70,8 +73,8 @@ function editHandle(d){
                             <div className="smallerDiv">
                                 <div><span id="name-of-the-booking-hading-page">origin </span>:<span>{d.origin}</span></div>
                                 <div><span id="name-of-the-booking-hading-page">Destination </span>: <span>{d.destination}</span></div>
-                                <div> <span id="name-of-the-booking-hading-page">Start Date</span> :<span>{d.startDate}</span></div>
-                                <div><span id="name-of-the-booking-hading-page">Start Date </span>:<span>{d.endDate}</span></div>
+                                <div> <span id="name-of-the-booking-hading-page">Start Date</span> :<span>{moment(`${d.startDate}`, "DD-MM-YYYY").format("MMM DD YYYY")}</span></div>
+                                <div><span id="name-of-the-booking-hading-page">Start Date </span>:<span>{moment(`${d.endDate}`, "DD-MM-YYYY").format("MMM DD YYYY")}</span></div>
                             </div>
                             <div className="smallerDiv">
                             <img src={d.MapImg} alt="map is unable to render" id="Abcdefghijklmn"/>
@@ -93,6 +96,7 @@ function editHandle(d){
                 </div>
             })
         }
+    </div> : <div>Not Authorised</div>}
     </div>
   );
 }

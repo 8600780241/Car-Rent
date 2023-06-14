@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import './BookingDetail.css';
-
+import moment from 'moment';
 import NavLogout from '../Nav/NavLogout';
 
 export default function BookingDetails({props}) {
@@ -14,6 +14,8 @@ export default function BookingDetails({props}) {
   
   const navigate = useNavigate();
   const [hederdata,setHeaderData] = useState(null);
+
+  const token = localStorage.getItem('token')
 
     useEffect(() => {
       fetchData();
@@ -66,10 +68,8 @@ if(!isNaN(data?.distance)){
   Tax = parseInt((Subtotal)*0.20);
   total = Subtotal+Tax;
 }
-    
-    const Proceed = () => {
-  
 
+    const Proceed = () => {
         fetch("http://localhost:8080/order",{
         method:"POST",
         headers:{
@@ -81,14 +81,11 @@ if(!isNaN(data?.distance)){
         
      if(Object){
         navigate("/mybooking", { state: { Object}})
-     
-     }
-     
-     
-       };
+     }};
 
   return (
-    <>
+    <div>
+      {token ?  <>
       <div className='main-conatainer'>
         <NavLogout myObject={Object} />
         <div className='box-of-payment'>
@@ -106,7 +103,7 @@ if(!isNaN(data?.distance)){
                     <li className='ans-of-the-file-payment-in-data-of-file'>{data?.model}</li>
                   </div>
                   <div className='image-of-car-in-rental-payment'>
-                    <img src={`http://localhost:8000/cars/images/${data?.image}`} alt='not availble' className='img' />
+                    <img src={`http://localhost:8080/cars/images/${data?.image}`} alt='not availble' className='img' />
                   </div>
                 </div>
               </div>
@@ -120,8 +117,8 @@ if(!isNaN(data?.distance)){
                 <div className='data'>
                   <li className='ans-of-the-file-payment-in-data-of-file'>{hederdata?.origin}</li>
                   <li className='ans-of-the-file-payment-in-data-of-file'>{hederdata?.destination}</li>
-                  <li className='ans-of-the-file-payment-in-data-of-file'>{hederdata?.startDate}</li>
-                  <li className='ans-of-the-file-payment-in-data-of-file'>{hederdata?.endDate}</li>
+                  <li className='ans-of-the-file-payment-in-data-of-file'>{moment(`${hederdata?.startDate}`, "DD-MM-YYYY").format("MMM DD YYYY")}</li>
+                  <li className='ans-of-the-file-payment-in-data-of-file'>{moment(`${hederdata?.endDate}`, "DD-MM-YYYY").format("MMM DD YYYY")}</li>
                 </div>
                 <div className='image-of-hte-map'></div>
               </div>
@@ -171,6 +168,7 @@ if(!isNaN(data?.distance)){
           </div>
         </div>
       </div>
-    </>
+    </> : <div>Not Authorized</div>}
+    </div>
   );
 }

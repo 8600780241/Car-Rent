@@ -45,6 +45,7 @@ export default function CarDetails() {
           method: 'POST',
           headers: {
             // 'Content-Type': 'application/json',
+            "Authorization" : token
           },
           body: formData,
         })

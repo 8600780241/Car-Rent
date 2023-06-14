@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./CarDetails.css";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 export default function EditCarDetails() {
     const { id } = useParams();
@@ -9,6 +10,9 @@ export default function EditCarDetails() {
     const [car, setCar] = useState({});
 
     const token = localStorage.getItem('token')
+
+    const decoded = jwt_decode(token);
+    console.log(decoded);
 
     const [formData, setFormData] = useState({
       name: "",
@@ -33,7 +37,7 @@ export default function EditCarDetails() {
   
     useEffect(() => {
       if (car) {
-          console.log(car)
+        //   console.log(car)
         setFormData({
           name: car.name,
           type: car.type,
@@ -82,16 +86,24 @@ export default function EditCarDetails() {
         updatedCar.append("image", formData.image);
       }
   
+      if(car.AdminId === decoded.id){
+        
       fetch(`http://localhost:8080/cars/updateCar/${id}`, {
         method: "PUT",
         body: updatedCar,
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+        //   console.log(data);
           navigate("/adminCarList");
         })
         .catch((error) => console.log(error));
+      }
+      else{
+        window.alert("You are not authorized")
+        navigate('/adminCarList')
+      }
+
     };
   
       function logout(e) {
