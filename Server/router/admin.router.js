@@ -47,7 +47,6 @@ adminRouter.post('/login',(req,res) => {
                     {
                         expiresIn : "1h"
                     },(err,token) => {
-                        console.log(token)
                         if(err){
                            return res.json({
                                 message : "Authentication failed",
